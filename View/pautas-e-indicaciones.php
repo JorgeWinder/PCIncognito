@@ -78,7 +78,7 @@
 
             <div class="row">
                 <div class="col s12 m12 l12 right-align">
-                        <a href="#" class="waves-effect waves-light btn" style="background-color: #f39c12;">Continuar</a>
+                        <a href="./proyectos-asignados" class="waves-effect waves-light btn" style="background-color: #f39c12;">Continuar</a>
                 </div>
                 
             </div>

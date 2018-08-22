@@ -33,6 +33,17 @@ $app->get('/pautas-e-indicaciones',  function(){
    include_once 'View/pautas-e-indicaciones.php';  
 });
 
+$app->get('/proyectos-asignados',  function(){  
+    include_once 'View/proyectos-asignados.php';  
+ });
+
+ $app->get('/agencias-asignadas',  function(){  
+    include_once 'View/agencias-asignadas.php';  
+ });
+
+ $app->get('/detalle-de-visita',  function(){  
+    include_once 'View/detalle-de-visita.php';  
+ });
 
 //-------------------------------------------------//
 
