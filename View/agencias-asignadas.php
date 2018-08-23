@@ -77,7 +77,7 @@
                         <th>Departamento</th>
                         <th>Provincia</th>
                         <th>Distrito</th>
-                        <th>Agencia</th>
+                        <th>Oficina</th>
                         <th>Visitas</th>
                         <th>Observación</th>
                         <th></th>
@@ -89,7 +89,7 @@
                         <td>Lima</td>
                         <td>Lima</td>
                         <td>Pueblo Libre</td>
-                        <td>Agencia Interbank Vea Brasil</td>
+                        <td>Interbank Vea Brasil</td>
                         <td class="center-align">
                             <a href="./detalle-de-visita" style=""><i class="material-icons prefix">filter_1</i></a>
                             <a href="./detalle-de-visita" style=""><i class="material-icons prefix">filter_2</i></a>
@@ -102,7 +102,7 @@
                         <td>Lima</td>
                         <td>Lima</td>
                         <td>Cercado de Lima</td>
-                        <td>Agencia IBK Centro Civico Real Plaza</td>
+                        <td>IBK Centro Civico Real Plaza</td>
                         <td class="center-align">
                             <a href="#" style=""><i class="material-icons prefix" style="color: #26a69a !important;">filter_1</i></a>
                             <a href="#" style=""><i class="material-icons prefix">filter_2</i></a>
@@ -115,7 +115,7 @@
                         <td>Lima</td>
                         <td>Lima</td>
                         <td>Pueblo Libre</td>
-                        <td>Agencia Interbank Vea Brasil</td>
+                        <td>Interbank La Rambla</td>
                         <td class="center-align">
                             <a href="#" style=""><i class="material-icons prefix" style="color: #26a69a !important;">filter_1</i></a>
                             <a href="#" style=""><i class="material-icons prefix" style="color: #26a69a !important;">filter_2</i></a>

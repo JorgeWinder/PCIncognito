@@ -41,8 +41,8 @@
     <div class="row">
         <div class="input-field col s12 l6">
                           <i class="material-icons prefix">home</i>
-                          <input id="icon_prefix3" type="text" class="validate" value="Agencia Interbank Vea Brasil" style="font-weight: 700;" disabled>
-                          <label for="icon_prefix3" class="">Agencia</label>
+                          <input id="icon_prefix3" type="text" class="validate" value="Interbank Vea Brasil" style="font-weight: 700;" disabled>
+                          <label for="icon_prefix3" class="">Oficina</label>
         </div>        
         <div class="input-field col s12 l6">
                           <i class="material-icons prefix">map</i>
