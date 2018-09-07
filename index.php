@@ -45,6 +45,10 @@ $app->get('/proyectos-asignados',  function(){
     include_once 'View/detalle-de-visita.php';  
  });
 
+ $app->get('/gestor-de-proyectos',  function(){  
+    include_once 'View/gestor-de-proyectos.php';  
+ });
+
 //-------------------------------------------------//
 
 $app->get('/hello/{name}', function (Request $request, Response $response) {
