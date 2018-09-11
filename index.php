@@ -45,6 +45,14 @@ $app->get('/proyectos-asignados',  function(){
     include_once 'View/detalle-de-visita.php';  
  });
 
+ $app->get('/modulo-administrador',  function(){  
+    include_once 'View/modulo-administrador.php';  
+ });
+
+ $app->get('/mantenimiento-usuarios',  function(){  
+    include_once 'View/mantenimiento-usuarios.php';  
+ });
+
 //-------------------------------------------------//
 
 $app->get('/hello/{name}', function (Request $request, Response $response) {
