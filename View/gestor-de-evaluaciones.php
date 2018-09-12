@@ -63,8 +63,8 @@
     <div class="col s12">
       <ul class="tabs">
         <li class="tab col s4"><a class="active" href="#test1">Evaluar encuesta</a></li>
-        <li class="tab col s4"><a href="#test2">Asignar cuestionario</a></li>
-        <li class="tab col s4"><a href="#test3">Asignar encuestadores</a></li>
+        <li class="tab col s4"><a href="#test2">Vista de base de datos</a></li>
+        <li class="tab col s4"><a href="#test3">Ver estadísticas</a></li>
         <!-- <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li> -->
         
       </ul>

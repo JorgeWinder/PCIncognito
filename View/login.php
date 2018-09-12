@@ -13,6 +13,34 @@
 
     <!-- Fin de Script / Estilos CSS  -->
 
+    <script>
+
+         $(document).ready(function () {
+
+              $("#cbotipouser").change(function(){
+
+
+              });
+
+              $("#btniniciar").click(function(){                                 
+                //alert($("#cbotipouser option:selected").attr("value"));                
+
+                if ($("#cbotipouser option:selected").attr("value")==1) {
+                    window.location="pautas-e-indicaciones";
+                } else if($("#cbotipouser option:selected").attr("value")==3){
+                    window.location="modulo-administrador";
+
+                }
+
+              });
+            
+              
+
+         });
+    
+    
+    </script>
+
 
 </head>
 
@@ -43,7 +71,7 @@
 
                         <div class="input-field col s12">
                         <i class="material-icons prefix">account_box</i>
-                            <select>
+                            <select id="cbotipouser">
                             <option value="" disabled selected>Seleccione tipo de usuario</option>
                             <option value="1">Encuestador</option>
                             <option value="2">Cliente</option>
@@ -61,7 +89,7 @@
 
                     <div class="row">
                         <div class="col s12 m12 l12">
-                                <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Iniciar sesión</a>
+                                <a id="btniniciar" href="#" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Iniciar sesión</a>
                         </div>
                         
                     </div>
