@@ -37,6 +37,7 @@
 
 /* Script de botón flotante mensajeria en paginas */
 
+
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elems, {
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /* ********************************************* */
 
           /* Script scroll click */ 
-          
+ /*         
           $(document).ready(function(){
               
                     $('a').click(function(){
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     });    
 
           });
-           
+ */          
           /* Evento al terminar de cargar la página*/   
           
           $(window).on("load", function (e) {

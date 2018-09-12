@@ -41,11 +41,23 @@
     </div>
 
     <div class="row">
+        <div class="col s12 m2 l2" style="padding-top:5px;">
+            
+        </div>
+        <div class="col s12 m8 l8" style="padding-top:5px;">
+            <a class="waves-effect waves-light btn-large" style="background-color:#112d5c;width:100%;"><i class="material-icons left" style="font-size:30px;">show_chart</i>Datos y estadísticas del cliente</a>
+        </div>
+        <div class="col s12 m2 l2" style="padding-top:5px;">    
+            
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col s12 m6 l6" style="padding-top:5px;">
-            <a class="waves-effect waves-light btn-large" style="background-color:#112d5c;width:100%;"><i class="material-icons left" style="font-size:30px;">group</i>Administración de clientes</a>
+            <a class="waves-effect waves-light btn-large" style="background-color:#112d5c;width:100%;"><i class="material-icons left" style="font-size:30px;">group</i>Gestor de evaluaciones</a>
         </div>
         <div class="col s12 m6 l6" style="padding-top:5px;">    
-            <a class="waves-effect waves-light btn-large" style="background-color:#112d5c;width:100%;"><i class="material-icons left" style="font-size:30px;">assignment</i>Evaluación de proyectos</a>
+            <a class="waves-effect waves-light btn-large" style="background-color:#112d5c;width:100%;"><i class="material-icons left" style="font-size:30px;">assignment</i>Mant. Estab. y entidades</a>
         </div>
     </div>
 

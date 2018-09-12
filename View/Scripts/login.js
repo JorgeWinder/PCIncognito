@@ -1,7 +1,7 @@
 
   $(document).ready(function(){
 
-    /* Efecto objetos scroll vertical mouse */     
+    /* Efecto objetos select formulario */     
     $(document).ready(function(){
         $('select').formSelect();
       });
