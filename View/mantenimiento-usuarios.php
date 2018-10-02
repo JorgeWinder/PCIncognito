@@ -41,12 +41,12 @@
     <div class="row">
         <div class="input-field col s12 l6">
                           <i class="material-icons prefix">person_add</i>
-                          <input id="icon_prefix3" type="text" class="validate" value="000000001" style="font-weight: 700;" disabled>
+                          <input id="icon_prefix3" type="text" value="000000001" style="font-weight: 700;">
                           <label for="icon_prefix3" class="">Usuario</label>
         </div>        
         <div class="input-field col s12 l6">
                           <i class="material-icons prefix">face</i>
-                          <input id="icon_prefix3" type="text" class="validate" value="Jorge Winder Ávila" style="font-weight: 700;" disabled>
+                          <input id="icon_prefix3" type="text" value="Jorge Winder Ávila" style="font-weight: 700;">
                           <label for="icon_prefix3" class="">Nombres Completos</label>
         </div>
     </div>
@@ -54,12 +54,12 @@
     <div class="row">
         <div class="input-field col s12 l6">
                           <i class="material-icons prefix">library_books</i>
-                          <input id="icon_prefix3" type="text" class="validate" value="46097865" style="font-weight: 700;" disabled>
+                          <input id="icon_prefix3" type="text" value="45347734" style="font-weight: 700;">
                           <label for="icon_prefix3" class="">Documento</label>
         </div>        
         <div class="input-field col s12 l6">
                           <i class="material-icons prefix">email</i>
-                          <input id="icon_prefix3" type="text" class="validate" value="jorge.winder@gmail.com" style="font-weight: 700;" disabled>
+                          <input id="icon_prefix3" type="text" value="jorge.winder@gmail.com" style="font-weight: 700;">
                           <label for="icon_prefix3" class="">Correo electrónico</label>
         </div>
     </div>

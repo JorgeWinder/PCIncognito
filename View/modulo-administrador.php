@@ -59,7 +59,7 @@
             <a href="./gestor-de-evaluaciones" class="waves-effect waves-light btn-large" style="background-color:#112d5c;width:100%;"><i class="material-icons left" style="font-size:30px;">group</i>Gestor de evaluaciones</a>
         </div>
         <div class="col s12 m6 l6" style="padding-top:5px;">    
-            <a class="waves-effect waves-light btn-large" style="background-color:#112d5c;width:100%;"><i class="material-icons left" style="font-size:30px;">assignment</i>Mant. Establecimiento y enti</a>
+            <a href="./mantenimiento-entidades-establecimientos" class="waves-effect waves-light btn-large" style="background-color:#112d5c;width:100%;"><i class="material-icons left" style="font-size:30px;">assignment</i>Mant. Establecimiento y enti</a>
         </div>
     </div>
 

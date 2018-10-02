@@ -62,7 +62,7 @@
   <div class="row">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s4"><a class="active" href="#test1">Evaluar encuesta</a></li>
+        <li class="tab col s4"><a class="active" href="#test1">Evaluar visitas</a></li>
         <li class="tab col s4"><a href="#test2">Vista de base de datos</a></li>
         <li class="tab col s4"><a href="#test3">Ver estadísticas</a></li>
         <!-- <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li> -->
@@ -80,50 +80,111 @@
                 <span class="card-title" style="color: #f39c12;padding-bottom: 10px;"></span>
                 
                     <div class="row">
+
                         <div class="input-field col l3 s12">
                             <i class="material-icons prefix">business</i>
                             <input id="icon_prefix" type="text" class="validate" disabled>
                             <label for="icon_prefix">Código de proyecto</label>
                         </div>
 
-                        <div class="input-field col l5 s12">
+                        <div class="input-field col l9 s12">
                             <!-- <i class="material-icons prefix">business</i> -->
                             <input id="icon_telephone" type="text" class="validate">
-                            <label for="icon_telephone">Nombre de proyecto</label>
-                        </div>
-
-                        <div class="input-field col l4 s12">
-                            <i class="material-icons prefix">explicit</i>
-                            <select>
-                            <option value="" disabled selected>Seleccione encuestador</option>
-                            <option value="1">Jorge Winder</option>
-                            <option value="2">Claudia Velásquez</option>
-                            <option value="3">Carlos Rivera</option>
-                            </select>                        
-                        </div>
-
-                        <div class="input-field col l6 s12">
-                            <!-- <i class="material-icons prefix">business</i> -->
-                            <input id="icon_telephone" type="text" class="validate">
-                            <label for="icon_telephone">Nombre de encuestador</label>
+                            <label for="icon_telephone">Buscar proyecto</label>
                         </div>
 
                         <div class="input-field col l3 s12">
-                            <!-- <i class="material-icons prefix">business</i> -->
-                            <input id="icon_telephone" type="text" class="validate">
-                            <label for="icon_telephone">DNI</label>
+                            <i class="material-icons prefix">face</i>
+                            <input id="icon_prefix" type="text" class="validate" disabled>
+                            <label for="icon_prefix">N.° documento</label>
                         </div>
 
+                        <div class="input-field col l9 s12">
+                            <!-- <i class="material-icons prefix">business</i> -->
+                            <input id="nomencuestador" type="text" class="validate">
+                            <label for="nomencuestador">Nombre de encuestador</label>
+                        </div>
                         
-                        
+
 
                         
                         
                     </div>
+
+
+
+                    <!-- tabla de detalle establecimientos a evaluar -->
+
+                        <div class="row">
+                            <div class="col s12 l12">
+
+                                <table class="highlight responsive-table">
+                                        <thead>
+                                        <tr style="color: #f39c12;">
+                                            <th>Departamento</th>
+                                            <th>Provincia</th>
+                                            <th>Distrito</th>
+                                            <th>Oficina</th>
+                                            <th class="center-align">Visitas</th>
+                                            <th class="center-align">Evaluar</th>
+                                            
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        <tr>
+                                            <td>Lima</td>
+                                            <td>Lima</td>
+                                            <td>Pueblo Libre</td>
+                                            <td>Interbank Vea Brasil</td>
+                                            <td class="center-align">
+                                                <a href="./detalle-de-visita" style=""><i class="material-icons prefix">filter_1</i></a>
+                                                <a href="./detalle-de-visita" style=""><i class="material-icons prefix">filter_2</i></a>
+                                                <a href="./detalle-de-visita" style=""><i class="material-icons prefix">filter_3</i></a>
+                                                <a href="./detalle-de-visita" style=""><i class="material-icons prefix">filter_4</i></a>
+                                            </td>
+                                            <td id="modal1" class="center-align"><a href="#" class="modal-trigger" ><i class="material-icons prefix">assignment</i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lima</td>
+                                            <td>Lima</td>
+                                            <td>Cercado de Lima</td>
+                                            <td>IBK Centro Civico Real Plaza</td>
+                                            <td class="center-align">
+                                                <a href="#" style=""><i class="material-icons prefix" style="color: #26a69a !important;">filter_1</i></a>
+                                                <a href="#" style=""><i class="material-icons prefix">filter_2</i></a>
+                                                <a href="#" style=""><i class="material-icons prefix">filter_3</i></a>
+                                                <a href="#" style=""><i class="material-icons prefix">filter_4</i></a>
+                                            </td>
+                                            <td class="center-align"><a href="#" class="modal-trigger" ><i class="material-icons prefix">assignment</i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lima</td>
+                                            <td>Lima</td>
+                                            <td>Pueblo Libre</td>
+                                            <td>Interbank La Rambla</td>
+                                            <td class="center-align">
+                                                <a href="#" style=""><i class="material-icons prefix" style="color: #26a69a !important;">filter_1</i></a>
+                                                <a href="#" style=""><i class="material-icons prefix" style="color: #26a69a !important;">filter_2</i></a>
+                                                <a href="#" style=""><i class="material-icons prefix" style="color: #26a69a !important;">filter_3</i></a>
+                                                <a href="#" style=""><i class="material-icons prefix">filter_4</i></a>
+                                            </td>
+                                            <td class="center-align"><i class="material-icons prefix">assignment</i></td>
+                                        </tr>
+                                        </tbody>
+                                </table>
+
+
+                            </div>        
+                        </div>
+
+
+
+
                     
                     <br>
 
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col s12 m4 l4">
                                 <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Registrar</a>
                         </div>
@@ -133,7 +194,7 @@
                         <div class="col s12 m4 l4">
                                 <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Eliminar</a>
                         </div>                        
-                    </div>
+                    </div> -->
 
             </div>
 
@@ -150,56 +211,41 @@
         <div class="card white">
             <div class="card-content">
                 <!--<span class="card-title center-align" style="border-left: 7px solid #e85b21;border-right: 7px solid #e85b21;">INGRESAR</span>-->
-                <span class="card-title" style="color: #f39c12;padding-bottom: 10px;"></span>
+                <span class="card-title" style="color: #f39c12;padding-bottom: 10px; height: 100px;"></span>
                 
                     <div class="row">
 
-                        <div class="input-field col l4 s12">
+                        <!-- <div class="input-field col l4 s12">
 
                             <i class="material-icons prefix">business</i>
-                            <input type="text" id="autocomplete-inputx" class="autocomplete">
-                            <label for="autocomplete-inputx">Ingrese código de proyecto</label>
+                            <input type="text" id="autocomplete-input2" class="autocomplete">
+                            <label for="autocomplete-input2">Ingrese código de proyecto</label>
 
                         </div>
 
                         <div class="input-field col l8 s12">
-                            <!-- <i class="material-icons prefix">business</i> -->
+                            
                             <input id="icon_telephone" type="text" class="validate" disabled>
                             <label for="icon_telephone">Nombre de proyecto</label>
-                        </div>
+                        </div> -->
 
-                        <div class="input-field col s12 l6">
-                            <i class="material-icons prefix">date_range</i>
-                            <input type="text" class="datepicker"  placeholder="Fecha de inicio">            
-                        </div>
 
-                        <div class="input-field col s12 l6">
-                            <i class="material-icons prefix">date_range</i>
-                            <input type="text" class="datepicker"  placeholder="Fecha de fin">            
-                        </div>
                         
                     </div>
 
-                    <div class="row">
+                    
 
-                    </div>
                     
                     <br>
 
-                    <div class="row">
+                    <!-- <div class="row">
                         
-                        <div class="col s12 m4 l4">
-                            <a href="#" class="waves-effect waves-light btn" style="width: 100%;background-color: #1b479a;">Agregar fila</a>
-                        </div>
-
-                        <div class="col s12 m4 l4">
-                                <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Asignar encuestadores</a>
-                        </div>
+                       
                         <div class="col s12 m4 l4">
                                 <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Borrar lista</a>
                         </div>
                                              
-                    </div>
+                    </div> -->
 
             </div>
 
@@ -217,102 +263,22 @@
         <div class="card white">
             <div class="card-content">
                 <!--<span class="card-title center-align" style="border-left: 7px solid #e85b21;border-right: 7px solid #e85b21;">INGRESAR</span>-->
-                <span class="card-title" style="color: #f39c12;padding-bottom: 10px;"></span>
-                
-                    <div class="row">
+                <span class="card-title" style="color: #f39c12;padding-bottom: 10px; height: 100px;"></span>
+                                
+                    
 
-                        <div class="input-field col l4 s12">
-
-                            <i class="material-icons prefix">business</i>
-                            <input type="text" id="autocomplete-input2" class="autocomplete">
-                            <label for="autocomplete-input2">Ingrese código de proyecto</label>
-
-                        </div>
-
-                        <div class="input-field col l8 s12">
-                            <!-- <i class="material-icons prefix">business</i> -->
-                            <input id="icon_telephone" type="text" class="validate" disabled>
-                            <label for="icon_telephone">Nombre de proyecto</label>
-                        </div>
-
-
-                        <div class="col s12 l12">
-
-                            <table class="highlight responsive-table" style="margin-top: 20px;">
-                                    <thead>
-                                    <tr style="color: #f39c12;">
-                                        <th>N.° de DNI</th>
-                                        <th>Nombres y apellidos</th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-
-                                    <tbody>
-                                    <tr>
-                                        <td>45347734</td>
-                                        <td>Jorge Gerald Winder Avila</td>
-                                        <td class="center-left">
-                                            <a href="#modal1" class="waves-effect waves-light btn modal-trigger" style="background-color: #f39c12;">Establecimientos asignados</a>    
-                                        </td> 
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">add_box</i></a></td>
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                                                                               
-                                    </tr>
-                                    <tr>
-                                        <td>29722385</td>
-                                        <td>Claudia Alejandra Velasquez Diaz</td>
-                                        <td class="center-left">
-                                            <a href="#modal1" class="waves-effect waves-light btn modal-trigger" style="background-color: #f39c12;">Establecimientos asignados</a>    
-                                        </td> 
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">add_box</i></a></td>
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                                           
-                                    </tr>
-                                    <tr>
-                                        <td>00000000</td>
-                                        <td>
-
-                                            <div class="input-field">
-                                                <!-- <i class="material-icons prefix">search</i>                                             -->
-                                                <input id="search" placeholder="Buscar encuestador">
-                                                <div class="search-results" style="padding-left: 5px;">
-                                                    <a style="display: block;" href="#">Jorge Winder Avila</a>
-                                                    <a style="display: block;" href="#">Claudia Velasquez</a>
-                                                    <a style="display: block;"  href="#">Rosa María Flores</a>
-                                                </div>
-                                            </div>
-
-                                        </td>
-                                        <td class="center-left">
-                                            <a href="./agencias-asignadas" class="waves-effect waves-light btn disabled" style="background-color: #f39c12;">Establecimientos asignados</a>    
-                                        </td> 
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">add_box</i></a></td>
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                                        
-                                    </tr>
-                                    </tbody>
-                            </table>
-
-                    </div>
-
-                        
-                    </div>
-
-                    <div class="row">
-
-                    </div>
                     
                     <br>
 
-                    <div class="row">
+                    <!-- <div class="row">
                         
                         <div class="col s12 m4 l4">
                             <a href="#" class="waves-effect waves-light btn" style="width: 100%;background-color: #1b479a;">Agregar nuevo</a>
                         </div>
                                              
-                    </div>
+                    </div> -->
+
+                    
 
             </div>
 
