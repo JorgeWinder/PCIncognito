@@ -4,7 +4,7 @@
         private $dbhost = 'localhost';
         private $dbuser = 'root';
         private $dbpass = '';
-        private $dbname = 'sigop';
+        private $dbname = 'pcincognito';
 
         // Connect
         public function connect(){

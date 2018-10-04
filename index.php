@@ -51,7 +51,11 @@ $app->get('/proyectos-asignados',  function(){
 
  $app->get('/mantenimiento-usuarios',  function(){  
     include_once 'View/mantenimiento-usuarios.php';  
-});
+ });
+
+ $app->get('/mantenimiento-usuario',  function(){  
+    include_once 'View/mantenimiento-usuario.php';  
+ });
    
  $app->get('/gestor-de-proyectos',  function(){  
     include_once 'View/gestor-de-proyectos.php';  
