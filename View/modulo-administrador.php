@@ -32,7 +32,7 @@
     
     <div class="row">
         <div class="col s12 m6 l6" style="padding-top:5px;">
-            <a href="./mantenimiento-usuarios" class="waves-effect waves-light btn-large" style="background-color:#112d5c;width:100%;"><i class="material-icons left" style="font-size:30px;">face</i>Mantenimiento de usuarios</a>
+            <a href="./mantenimiento-usuario" class="waves-effect waves-light btn-large" style="background-color:#112d5c;width:100%;"><i class="material-icons left" style="font-size:30px;">face</i>Mantenimiento de usuarios</a>
         </div>
         <div class="col s12 m6 l6" style="padding-top:5px;">
             <a href="./gestor-de-proyectos" class="waves-effect waves-light btn-large" style="background-color:#112d5c;width:100%;"><i class="material-icons left" style="font-size:30px;">settings_applications</i>Gestor de proyectos</a>

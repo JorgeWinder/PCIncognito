@@ -9,9 +9,8 @@
 
     <!-- Script / Estilos CSS / Recursos solo de la página actual -->
     <script src="Recursos/js/ion.rangeSlider.js"></script>
-    <script src="View/Scripts/gestor-de-proyectos.js"></script>
-    <link rel="stylesheet" href="Recursos/css/ion.rangeSlider.css" /> 
-    <link rel="stylesheet" href="Recursos/css/ion.rangeSlider.skinFlat.css" />
+    <script src="View/Scripts/mantenimiento-usuario.js"></script>
+    <script src="View/Scripts/validacion.js"></script>
     <!-- Fin de Script / Estilos CSS  -->
 
     <style>
@@ -72,72 +71,71 @@
 
     <div id="test1" class="col s12">
 
-        <!-- inicio de card -->
+        <!-- inicio de card colaborador -->
     
         <div class="card white">
-            <div class="card-content">
+            <div class="card-content" style="font-weight: 500;">
                 <!--<span class="card-title center-align" style="border-left: 7px solid #e85b21;border-right: 7px solid #e85b21;">INGRESAR</span>-->
-                <span class="card-title" style="color: #f39c12;padding-bottom: 10px;"></span>
+                <span class="card-title" style="padding-bottom: 10px;"></span>
                 
-                    <div class="row">
-                        <div class="input-field col l3 s12">
-                            <i class="material-icons prefix">business</i>
-                            <input id="icon_prefix" type="text" class="validate" disabled>
-                            <label for="icon_prefix">Código de proyecto</label>
-                        </div>
+                <div class="row">
+                    <div class="input-field col s12 l6">
+                                    <i class="material-icons prefix">library_books</i>
+                                    <input id="dni" type="text" value="" style="">
+                                    <label for="dni" class="">Documento de identidad</label>
+                    </div>        
+                </div>
 
-                        <div class="input-field col l9 s12">
-                            <!-- <i class="material-icons prefix">business</i> -->
-                            <input id="icon_telephone" type="text" class="validate">
-                            <label for="icon_telephone">Nombre de proyecto</label>
-                        </div>
+                <div class="row">
+                    <div class="input-field col s12 l6">
+                                    <i class="material-icons prefix">face</i>
+                                    <input id="Nombres" type="text" value="">
+                                    <label for="Nombres" class="">Nombres</label>
+                    </div>
+                    <div class="input-field col s12 l6">
+                                    <!-- <i class="material-icons prefix">library_books</i> -->
+                                    <input id="Apellidos" type="text" value="" style="">
+                                    <label for="Apellidos" class="">Apellidos</label>
+                    </div>                            
+                </div>
 
-                        <div class="input-field col s12 l6">
-                            <i class="material-icons prefix">date_range</i>
-                            <input type="text" class="datepicker"  placeholder="Fecha de inicio">            
-                        </div>
-
-                        <div class="input-field col s12 l6">
-                            <i class="material-icons prefix">date_range</i>
-                            <input type="text" class="datepicker"  placeholder="Fecha de fin">            
-                        </div>
-
-                        <div class="input-field col l6 s12">
-
-                            <i class="material-icons prefix">business_center</i>
-                            <input type="text" id="autocomplete-input" class="autocomplete">
-                            <label for="autocomplete-input">Cliente</label>
-
-                        </div>
-
-                        <div class="input-field col l6 s12">
-                            <i class="material-icons prefix">explicit</i>
-                            <select>
-                            <option value="" disabled selected>Seleccione estado del proyecto</option>
-                            <option value="1">En curso</option>
-                            <option value="2">Terminado</option>
-                            <option value="3">Suspendido</option>
+                <div class="row">        
+                    <div class="input-field col s12 l6">
+                                    <i class="material-icons prefix">email</i>
+                                    <input id="Correo" type="text" value="">
+                                    <label for="Correo" class="">Correo electrónico</label>
+                    </div>
+                    <div class="input-field col s12 l6">
+                        <i class="material-icons prefix">account_box</i>
+                            <select id="cboPerfil">
+                            <option value="" disabled selected>Seleccione perfil de usuario</option>
+                            <option value="1">Administrador</option>                            
                             </select>                        
-                        </div>
-                        
                     </div>
-                    
-                    <br>
+                </div>
 
-                    <div class="row">
-                        <div class="col s12 m4 l4">
-                                <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Registrar</a>
-                        </div>
-                        <div class="col s12 m4 l4">
-                                <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Modificar</a>
-                        </div>
-                        <div class="col s12 m4 l4">
-                                <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Eliminar</a>
-                        </div>                        
+                <div class="row">
+                    <div class="input-field col s12 l6">
+                                    <i class="material-icons prefix">https</i>
+                                    <input id="Password" type="password" value="">
+                                    <label for="Password" class="">Contraseña</label>
+                                    <i class="material-icons" style="display: inline-block !important;">https</i>                                            
+                    </div>        
+                    <div class="input-field col s12 l6">
                     </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 l12 center-align">
+                        <a id="btnnuevo" href="" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Nuevo</a>
+                        <a id="btnregistrar" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Registrar</a>
+                        <a id="btnmodificar" href="#" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Modificar</a>
+                        <a id="btneliminar" href="#" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Eliminar</a>
+                    </div>    
+                </div>
+                
 
             </div>
-
         </div>
 
         <!-- Fin de card -->

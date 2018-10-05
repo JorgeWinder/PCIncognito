@@ -81,7 +81,7 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 // -------------------Clases o Archivos de ruteo-------------------
 
 require './src/config/ini.php';
-require './src/routers/api-sigop.php';
+require './src/routers/api-pcincog.php';
 
 $app->run();
  

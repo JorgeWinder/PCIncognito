@@ -13,7 +13,6 @@ $app->get('/api/encuesta/{id}', function (Request $request, Response $response) 
     return $response;
 });
 
-
  $app->post('/api-sigop/cliente/add', function(Request $request, Response $response){
 
     $RucDnICL = $request->getParam('RucDnICL');
@@ -53,6 +52,7 @@ $app->get('/api/encuesta/{id}', function (Request $request, Response $response) 
         echo json_encode(FALSE);
     }
 });
+
 
 
 $app->post('/api-sigop/producto/busqueda',  function(Request $request, Response $response) { 
