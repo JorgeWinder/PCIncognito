@@ -11,7 +11,7 @@
         $Correo = $request->getParam('Correo');    
         $Password = $request->getParam('Password');
         
-        $sql = "SELECT col.* , per.NombrePerfil FROM colaborador col, perfil per where col.idPerfil=per.idPerfil and col.Correo='$Correo' and ";
+        $sql = "SELECT col.* , per.NombrePerfil FROM colaborador col, perfil per where col.idPerfil=per.idPerfil and col.Correo='$Correo'";
     
         try{
             // Get DB Object
@@ -83,3 +83,73 @@
             echo json_encode(FALSE);
         }
     });
+
+
+    // Listar perfil
+
+    $app->get('/api-pcincog/Perfil/get',  function(Request $request, Response $response) { 
+   
+        $sql = "SELECT * FROM perfil";
+        
+        try{
+            
+             // Get DB Object
+             $db = new db();
+             // Connect
+             $db = $db->connect();
+             $stmt = $db->query($sql);
+             $Perfil = $stmt->fetchAll(PDO::FETCH_OBJ);
+             $db = null;
+             
+             if(count($Perfil)>0){            
+                 
+                 $resultado="";
+                 
+                 foreach ($Perfil as  $row) {
+                     $resultado = $resultado . "<option value='" . $row->idPerfil . "'>" . $row->NombrePerfil . "</option>"; 
+                 }
+     
+                 echo json_encode($resultado);
+             }
+            
+            
+        } catch(PDOException $e){
+             echo '{"error": {"text": '.$e->getMessage().'}';
+        }
+        
+     });
+
+
+    // Listar distrito
+
+    $app->get('/api-pcincog/Distrito/get',  function(Request $request, Response $response) { 
+   
+        $sql = "SELECT * FROM distrito";
+        
+        try{
+            
+             // Get DB Object
+             $db = new db();
+             // Connect
+             $db = $db->connect();
+             $stmt = $db->query($sql);
+             $Perfil = $stmt->fetchAll(PDO::FETCH_OBJ);
+             $db = null;
+             
+             if(count($Perfil)>0){            
+                 
+                 $resultado="";
+                 
+                 foreach ($Perfil as  $row) {
+                     $resultado = $resultado . "<option value='" . $row->idDistrito . "'>" . $row->NomDistrito . "</option>"; 
+                 }
+     
+                 echo json_encode($resultado);
+             }
+            
+            
+        } catch(PDOException $e){
+             echo '{"error": {"text": '.$e->getMessage().'}';
+        }
+        
+     });

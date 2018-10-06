@@ -18,23 +18,8 @@
          $(document).ready(function () {
 
               $("#cbotipouser").change(function(){
-
-
+                   
               });
-
-              $("#btniniciar").click(function(){                                 
-                //alert($("#cbotipouser option:selected").attr("value"));                
-
-                if ($("#cbotipouser option:selected").attr("value")==1) {
-                    window.location="pautas-e-indicaciones";
-                } else if($("#cbotipouser option:selected").attr("value")==3){
-                    window.location="modulo-administrador";
-
-                }
-
-              });
-            
-              
 
          });
     
@@ -65,8 +50,8 @@
                     <div class="row">
                         <div class="input-field col s12">
                         <i class="material-icons prefix">markunread</i>
-                        <input id="icon_prefix" type="text" class="validate">
-                        <label for="icon_prefix">Nombre de correo</label>
+                        <input id="Correo" type="text">
+                        <label for="Correo">Nombre de correo</label>
                         </div>
 
                         <div class="input-field col s12">
@@ -81,15 +66,15 @@
 
                         <div class="input-field col s12">
                         <i class="material-icons prefix">lock</i>
-                        <input id="icon_telephone" type="password" class="validate">
-                        <label for="icon_telephone">Contraseña</label>
+                        <input id="Password" type="password">
+                        <label for="Password">Contraseña</label>
                         </div>
                     </div>
                     
 
                     <div class="row">
                         <div class="col s12 m12 l12">
-                                <a id="btniniciar" href="#" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Iniciar sesión</a>
+                                <a id="btniniciar" href="javascript:void()" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Iniciar sesión</a>
                         </div>
                         
                     </div>

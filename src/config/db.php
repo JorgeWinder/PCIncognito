@@ -3,7 +3,7 @@
         // Properties
         private $dbhost = 'localhost';
         private $dbuser = 'root';
-        private $dbpass = '';
+        private $dbpass = 'root';
         private $dbname = 'pcincognito';
 
         // Connect

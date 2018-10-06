@@ -62,8 +62,8 @@
     <div class="col s12">
       <ul class="tabs">
         <li class="tab col s4"><a class="active" href="#test1">Registro de colaborador</a></li>
-        <li class="tab col s4"><a href="#test2">Registar usario cliente</a></li>
-        <li class="tab col s4"><a href="#test3">Registar encuestador</a></li>
+        <li class="tab col s4"><a href="#test2">Registar encuestador</a></li>
+        <li class="tab col s4"><a href="#test3">Registar usuario cliente</a></li>
         <!-- <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li> -->
         
       </ul>
@@ -109,7 +109,7 @@
                         <i class="material-icons prefix">account_box</i>
                             <select id="cboPerfil">
                             <option value="" disabled selected>Seleccione perfil de usuario</option>
-                            <option value="1">Administrador</option>                            
+                            <!-- <option value="1">Administrador</option>                             -->
                             </select>                        
                     </div>
                 </div>
@@ -118,8 +118,7 @@
                     <div class="input-field col s12 l6">
                                     <i class="material-icons prefix">https</i>
                                     <input id="Password" type="password" value="">
-                                    <label for="Password" class="">Contraseña</label>
-                                    <i class="material-icons" style="display: inline-block !important;">https</i>                                            
+                                    <label for="Password" class="">Contraseña</label>                                    
                     </div>        
                     <div class="input-field col s12 l6">
                     </div>
@@ -144,127 +143,78 @@
     
     <div id="test2" class="col s12">
         
-        <!-- inicio de card 2 -->
+        <!-- inicio de card encuestador -->
     
         <div class="card white">
-            <div class="card-content">
+            <div class="card-content" style="font-weight: 500;">
                 <!--<span class="card-title center-align" style="border-left: 7px solid #e85b21;border-right: 7px solid #e85b21;">INGRESAR</span>-->
-                <span class="card-title" style="color: #f39c12;padding-bottom: 10px;"></span>
+                <span class="card-title" style="padding-bottom: 10px;"></span>
                 
-                    <div class="row">
-                       
+                <div class="row">
+                    <div class="input-field col s12 l3">
+                                    <i class="material-icons prefix">library_books</i>
+                                    <input id="dni2" type="text" value="" style="">
+                                    <label for="dni2" class="">N.° DNI</label>
+                    </div>  
+                    <div class="input-field col s12 l9">
+                                    <i class="material-icons prefix">face</i>
+                                    <input id="Nombres2" type="text" value="">
+                                    <label for="Nombres2" class="">Nombres y apellidos</label>
+                    </div>      
+                </div>
 
-                        <div class="input-field col l4 s12">
+                <div class="row">
 
-                            <i class="material-icons prefix">business</i>
-                            <input type="text" id="autocomplete-inputx" class="autocomplete">
-                            <label for="autocomplete-inputx">Ingrese código de proyecto</label>
+                    <div class="input-field col s12 l6">
+                                    <i class="material-icons prefix">email</i>
+                                    <input id="Correo2" type="text" value="" style="">
+                                    <label for="Correo2" class="">Correo electrónico</label>
+                    </div>  
+                    <div class="input-field col s12 l6">
+                                    <i class="material-icons prefix">phone</i>
+                                    <input id="Telefono2" type="text" value="">
+                                    <label for="Telefono2" class="">Teléfono</label>
+                    </div>                             
+                </div>
 
-                        </div>
-
-                        <div class="input-field col l8 s12">
-                            <!-- <i class="material-icons prefix">business</i> -->
-                            <input id="icon_telephone" type="text" class="validate" disabled>
-                            <label for="icon_telephone">Nombre de proyecto</label>
-                        </div>                
-                        
+                <div class="row">
+                    <div class="input-field col s12 l6">
+                            <i class="material-icons prefix">map</i>
+                            <select id="cboDistrito">
+                            <option value="" disabled selected>Seleccione distrito</option>
+                            <!-- <option value="1">Administrador</option>                             -->
+                            </select>                        
+                    </div>                        
+                    <div class="input-field col s12 l6">
+                                    
+                                    <input id="Direccion2" type="text" value="">
+                                    <label for="Direccion2" class="">Dirección</label>
                     </div>
+                </div>
 
-                    <div class="row">
-
-                        <div class="col s12 m12">
-
-                            <ul class="collection with-header">
-                                <li class="collection-header"><h5>Lista de preguntas</h5></li>
-                                <li class="collection-item">
-                                    <label>                
-                                        <input id="task1" type="checkbox" class="filled-in"/>
-                                        <span>P1. Calidad de la recepción</span>
-                                        <a href="#" class="secondary-content"><span class="ultra-small">Ver repuesta</span></a>
-                                    </label>
-                                </li>
-                                <li class="collection-item">
-                                    <label>                
-                                        <input id="task1" type="checkbox" class="filled-in"/>
-                                        <span>P2. ¿El personal comprendió su solicitud sin dificultad?</span>
-                                        <a href="#" class="secondary-content"><span class="ultra-small">Ver repuesta</span></a>
-                                    </label>
-                                </li>
-                                <li class="collection-item">
-                                    <label>                
-                                        <input id="task1" type="checkbox" class="filled-in"/>
-                                        <span>P3. ¿El personal ofreció otros productos, promociones y/o ofertas además de su solicitud inicial?</span>
-                                        <a href="#" class="secondary-content"><span class="ultra-small">Ver repuesta</span></a>
-                                    </label>
-                                </li>
-                                <li class="collection-item">
-                                    <label>                
-                                        <input id="task1" type="checkbox" class="filled-in"/>
-                                        <span>P4. ¿El personal tenía conocimiento de los productos, promociones y/o ofertas que se brindan en el local?</span>
-                                        <a href="#" class="secondary-content"><span class="ultra-small">Ver repuesta</span></a>
-                                    </label>
-                                </li>
-
-                                <li class="collection-item">
-                                    <label>                
-                                        <input id="task1" type="checkbox" class="filled-in"/>
-                                        <span>P5. ¿El personal interrumpió su atención por una llamada telefónica, compañero de trabajo u otra situación que no corresponde; y no se disculpó?</span>
-                                        <!-- <a href="#" class="secondary-content"><span class="ultra-small">Pregunta</span></a> -->
-                                    </label>
-                                </li>
-
-                                <li class="collection-item">
-                                    <label>                
-                                        <input id="task1" type="checkbox" class="filled-in"/>
-                                        <span>P6. ¿El personal le indicó un tiempo aproximado estimado de espera para recibir su orden o servicio?</span>
-                                        <a href="#" class="secondary-content"><span class="ultra-small">Ver repuesta</span></a>
-                                    </label>
-                                </li>
-
-                                <li class="collection-item">
-                                    <label>                
-                                        <input id="task1" type="checkbox" class="filled-in"/>
-                                        <span>P7. ¿El personal fue amable durante su atención?</span>
-                                        <a href="#" class="secondary-content"><span class="ultra-small">Ver repuesta</span></a>
-                                    </label>
-                                </li>
-
-                                <li class="collection-item">
-                                    <label>                
-                                        <input id="task1" type="checkbox" class="filled-in"/>
-                                        <span>P8. Durante su atención ¿El personal fue seguro en sus respuestas?</span>
-                                        <a href="#" class="secondary-content"><span class="ultra-small">Ver repuesta</span></a>
-                                    </label>
-                                </li>
-
-                            </ul>
-
-                                                    
-                        </div>
-
-
+                <div class="row">
+                    <div class="input-field col s12 l6">
+                                    <i class="material-icons prefix">https</i>
+                                    <input id="Password2" type="password" value="">
+                                    <label for="Password2" class="">Contraseña</label>                                    
+                    </div>        
+                    <div class="input-field col s12 l6">
                     </div>
-                    
-                    <br>
+                </div>
 
-                    <div class="row">
-                        
-                        <div class="col s12 m4 l4">
-                            <!-- <a href="#" class="waves-effect waves-light btn" style="width: 100%;background-color: #1b479a;">Agregar fila</a> -->
-                        </div>
-
-                        <div class="col s12 m4 l4">
-                                <a href="#" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Crear cuestionario</a>
-                        </div>
-                        <div class="col s12 m4 l4">
-                                <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn disabled" style="width: 100%;background-color: #f39c12;">Borrar cuestionario</a>
-                        </div>
-                                             
-                    </div>
+                <div class="row">
+                    <div class="col s12 l12 center-align">
+                        <a id="btnnuevo" href="" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Nuevo</a>
+                        <a id="btnregistrar2" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Registrar</a>
+                        <a id="btnmodificar2" href="#" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Modificar</a>
+                        <a id="btneliminar2" href="#" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Eliminar</a>
+                    </div>    
+                </div>
+                
 
             </div>
-
         </div>
+
 
         <!-- Fin de card 2 -->
 
