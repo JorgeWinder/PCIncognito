@@ -85,6 +85,79 @@
     });
 
 
+    // Modificar colaborador
+
+    $app->post('/api-pcincog/colaborador/update', function(Request $request, Response $response){
+    
+        $idColaborador = $request->getParam('idColaborador');
+
+        $Nombres = $request->getParam('Nombres');
+        $Apellidos = $request->getParam('Apellidos');
+        $Correo = $request->getParam('Correo');
+        $idPerfil = $request->getParam('idPerfil');        
+        $Password = password_hash($request->getParam('Password'), PASSWORD_DEFAULT);
+    
+        $sql = "UPDATE colaborador SET Nombres='$Nombres' , 
+        Apellidos='$Apellidos' , 
+        Correo='$Correo' , 
+        idPerfil='$idPerfil' , 
+        Password='$Password'
+        WHERE idColaborador='$idColaborador'";
+    
+        try{
+            // Get DB Object
+            $db = new db();
+            // Connect
+            $db = $db->connect();
+            $stmt = $db->prepare($sql);
+    
+            if($stmt->execute())
+            {
+    /*            session_start(); 
+                $_SESSION["pagina"]='/encuesta/pagina-dos';*/
+                echo json_encode(TRUE);
+            }
+        
+        } catch(PDOException $e){
+            //echo '{"error": {"text": '.$e->getMessage().'}';
+            echo json_encode(FALSE);
+        }
+    });
+
+
+    //Busqueda de colaborador
+
+    $app->post('/api-sigop/cliente/busqueda',  function(Request $request, Response $response) { 
+    
+        $Nombres = $request->getParam('Nombres');
+        
+        $sql="SELECT * FROM cliente where  colaborador like '%$Nombres%' or  RucDnICL like '%$Nombres%'";
+     
+        try{
+            
+             // Get DB Object
+             $db = new db();
+             // Connect
+             $db = $db->connect();
+             $stmt = $db->query($sql);
+             $productos = $stmt->fetchAll(PDO::FETCH_OBJ);
+             $db = null;
+             
+             if(count($productos)>0){
+                 echo json_encode($productos); 
+             }else{
+                 echo json_encode("Objeto vacio"); 
+             }
+            
+            
+        } catch(PDOException $e){
+             echo '{"error" : {"text": '.$e->getMessage().'}';
+        }
+        
+     });
+     
+    
+
     // Listar perfil
 
     $app->get('/api-pcincog/Perfil/get',  function(Request $request, Response $response) { 

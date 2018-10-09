@@ -76,7 +76,16 @@
         <div class="card white">
             <div class="card-content" style="font-weight: 500;">
                 <!--<span class="card-title center-align" style="border-left: 7px solid #e85b21;border-right: 7px solid #e85b21;">INGRESAR</span>-->
-                <span class="card-title" style="padding-bottom: 10px;"></span>
+                <span class="card-title" style="padding: 0 5% 10px 5%;">  
+
+                        <div class="input-field" style="border: 50px;">
+                            <input id="search"  style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de colaborador" type="search" required>
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                            <div id="searchResults" ></div>
+                        </div>          
+
+                </span>
                 
                 <div class="row">
                     <div class="input-field col s12 l6">
@@ -128,8 +137,8 @@
                     <div class="col s12 l12 center-align">
                         <a id="btnnuevo" href="" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Nuevo</a>
                         <a id="btnregistrar" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Registrar</a>
-                        <a id="btnmodificar" href="#" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Modificar</a>
-                        <a id="btneliminar" href="#" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Eliminar</a>
+                        <a id="btnmodificar" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Modificar</a>
+                        <a id="btneliminar" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Eliminar</a>
                     </div>    
                 </div>
                 
@@ -148,7 +157,20 @@
         <div class="card white">
             <div class="card-content" style="font-weight: 500;">
                 <!--<span class="card-title center-align" style="border-left: 7px solid #e85b21;border-right: 7px solid #e85b21;">INGRESAR</span>-->
-                <span class="card-title" style="padding-bottom: 10px;"></span>
+                <span class="card-title" style="padding: 0 5% 10px 5%;">  
+
+                        <div class="input-field" style="border: 50px;">
+                            <input id="search" onkeyup="autocompleta(1)" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de encuestador" type="search" required>
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                            <div id="search-results" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;">
+                                        <a style="" href="#" class="collection-item">45347734 - JORGE WINDER</a>
+                                        <a style="" href="#" class="collection-item">29722385 - CLAUDIA VELASQUEZ</a>
+                                        <a style="" href="#" class="collection-item">36589757 - ROSA VASQUEZ MORENO</a>
+                            </div>
+                        </div>          
+
+                </span>                
                 
                 <div class="row">
                     <div class="input-field col s12 l3">
@@ -206,8 +228,8 @@
                     <div class="col s12 l12 center-align">
                         <a id="btnnuevo" href="" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Nuevo</a>
                         <a id="btnregistrar2" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Registrar</a>
-                        <a id="btnmodificar2" href="#" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Modificar</a>
-                        <a id="btneliminar2" href="#" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Eliminar</a>
+                        <a id="btnmodificar2" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Modificar</a>
+                        <a id="btneliminar2" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Eliminar</a>
                     </div>    
                 </div>
                 
