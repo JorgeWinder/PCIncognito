@@ -15,6 +15,7 @@
     //---------------------//
 
     $("#cboDistrito").change(function(){
+
         $("#Direccion2").focus();
     });
     //---------------------//
@@ -44,15 +45,15 @@
 
     $("#btnregistrar2").click(function(){
             
-        if( $("select option:selected").attr("value") > 0  && $("#dni").val()!="" && $("#Nombres").val()!="" && $("#Apellidos").val()!=""){
+        if( $("#cboDistrito option:selected").attr("value") > 0  && $("#dni2").val()!="" && $("#Nombres2").val()!="" && $("#Correo2").val()!=""){
 
             $.ajax({
               type: "POST",
-              url: './api-pcincog/colaborador/add',
-              data:  {idColaborador: $("#dni").val().trim(), Nombres: $("#Nombres").val().trim().toUpperCase() , Apellidos: $("#Apellidos").val().trim().toUpperCase() , Correo: $("#Correo").val().trim().toUpperCase() , idPerfil: $("#cboPerfil option:selected").attr("value") , Password: $("#Password").val() },
+              url: './api-pcincog/encuestador/add',
+              data:  {idEncuestador: $("#dni2").val().trim(), Nombres: $("#Nombres2").val().trim().toUpperCase() , Correo: $("#Correo2").val().trim().toUpperCase() , Telefono: $("#Telefono2").val().trim().toUpperCase() , Direccion: $("#Direccion2").val().trim().toUpperCase() , idDistrito: $("#cboDistrito option:selected").attr("value") , Password: $("#Password2").val() },
               success: function (response) {
                              var obj = $.parseJSON(response);                      
-                             obj ? alert("COLABORADOR REGISTRADO") : alert("HUBO PROBLEMAS AL REGISTAR COLABORADOR");
+                             obj ? alert("ENCUESTADOR REGISTRADO") : alert("HUBO PROBLEMAS AL REGISTAR ENCUESTADOR");
                              $("#btnregistrar2").attr("disabled","true");
                   }
             });
@@ -64,6 +65,7 @@
 
     $("#btnmodificar").click(function(){
             
+
         if( $("select option:selected").attr("value") > 0  && $("#dni").val()!="" && $("#Nombres").val()!="" && $("#Apellidos").val()!=""){
 
             $.ajax({
@@ -73,7 +75,27 @@
               success: function (response) {
                              var obj = $.parseJSON(response);                      
                              obj ? alert("REGISTRO MODIFICADO") : alert("HUBO PROBLEMAS AL MODIFICAR EL REGISTRO");
-                             $("#btnmodificar").attr("disabled","true");
+                             //$("#btnmodificar").attr("disabled","true");
+                  }
+            });
+
+        }else{ alert("FLATAN COMPLETAR DATOS"); }        
+
+    });
+
+
+    $("#btnmodificar2").click(function(){
+            
+        if( $("select option:selected").attr("value") > 0  && $("#dni2").val()!="" && $("#Nombres2").val()!="" && $("#Correo2").val()!=""){
+
+            $.ajax({
+              type: "POST",
+              url: './api-pcincog/encuestador/update',
+              data:  {idEncuestador: $("#dni2").val().trim(), Nombres: $("#Nombres2").val().trim().toUpperCase() , Correo: $("#Correo2").val().trim().toUpperCase() , Telefono: $("#Telefono2").val().trim().toUpperCase() , Direccion: $("#Direccion2").val().trim().toUpperCase() , idDistrito: $("#cboDistrito option:selected").attr("value") },
+              success: function (response) {
+                             var obj = $.parseJSON(response);                      
+                             obj ? alert("REGISTRO MODIFICADO") : alert("HUBO PROBLEMAS AL MODIFICAR EL REGISTRO");
+                             //$("#btnmodificar").attr("disabled","true");
                   }
             });
 
@@ -89,59 +111,128 @@
 
  //BUSQUEDA AUTOCOMPLETADO COLABORADOR
 
- function autocompleta(itempro){
+ function autocompleta(){
         
-    //$(".list-group li").remove();
 
-    if($("#nompro" + itempro).val()!="")
+    if($("#search").val()!="")
     {
+        
 
         $.ajax({
            type: "POST",
-           url: './api-sigop/producto/busqueda',
-           data:  {NombreProducto: $("#nompro" + itempro).val() , idTienda: $("#idtienda").val() },
+           url: './api-pcincog/colaborador/busqueda',
+           data:  {Nombres: $("#search").val() },
            success: function (response) {
-                          var obj = $.parseJSON(response);             
-                          $("#autoproducto" + itempro).css("display","block");                 
-                          $("#autoproducto" + itempro +" li").remove();
+                          var obj = $.parseJSON(response);  
+        
+                          $("#searchRS").css("display","block");                 
+                          $("#searchRS a").remove();
+                          html = "";
 
                           for (var i = 0; i < obj.length; i++) {
-                              //alert(obj[i].idProducto.toString());
-                               //textoprecios= "<a href='javascript:void()' style='text-decoration:none; position: absolute;' data-toggle='popover' title='Precios' data-trigger='click' data-html='true' data-content='" + obj[i].PrecioVenta.toString()  + "<br> l2'> <span class='label label-info'>Ver precios</span> </a>"; // + "<span style='background-color: white;cursor: pointer;' title='Información' data-toggle='popover' data-trigger='hover' data-html='true' data-content='¿Ha olvidado su comtraseña?'><span class='glyphicon glyphicon-info-sign' aria-hidden='true'></span></span>"; 
-                               textoprecios= " <span class='label label-default'>PV : " + obj[i].PrecioVenta.toString() + "</span>";
-                               textoprecios = textoprecios + " <span class='label label-default'>PM : " + obj[i].PrecioxMayor.toString() + "</span>";                                   
-                               textoprecios = textoprecios + " <span class='label label-default'>PF : " + obj[i].PrecioVenta2.toString() + "</span>";                                   
-                               textoprecios = textoprecios + " <span class='label label-default'>PL : " + obj[i].PrecioVenta3.toString() + "</span>";                                   
-
-                                if(obj[i].getStock > 0){
-                                    html="<a href='javascript:setProducto("+ itempro +","+ obj[i].idProducto.toString() +",\"" + obj[i].NombreProducto.toString() + "\"," + obj[i].PrecioVenta.toString() + ","  + obj[i].PrecioVenta2.toString() + ","  + obj[i].PrecioVenta3.toString() + "," + obj[i].PrecioxMayor.toString() + "," + obj[i].getStock.toString() + ")' style='text-decoration:none;'><li class='list-group-item'>" + obj[i].idProducto.toString() + " - " + obj[i].NombreProducto.toString() + " <span class='label label-primary'>STOCK : " + obj[i].getStock.toString() + "</span></li></a>";    
-                                }else{
-                                    html="<li class='list-group-item'><a href='javascript:void()' style='text-decoration:none;'>" + obj[i].idProducto.toString() + " - " + obj[i].NombreProducto.toString() + " <span class='label label-danger'>STOCK : " + obj[i].getStock.toString() + "</span></a> " + textoprecios + "</li>";                                            
-                                }
-                                
-                                $("#autoproducto" + itempro).append(html);
+                              //alert(obj[i].idColaborador.toString());
+                              //html="<a href='javascript:setProducto("+ itempro +","+ obj[i].idProducto.toString() +",\"" + obj[i].NombreProducto.toString() + "\"," + obj[i].PrecioVenta.toString() + ","  + obj[i].PrecioVenta2.toString() + ","  + obj[i].PrecioVenta3.toString() + "," + obj[i].PrecioxMayor.toString() + "," + obj[i].getStock.toString() + ")' style='text-decoration:none;'><li class='list-group-item'>" + obj[i].idProducto.toString() + " - " + obj[i].NombreProducto.toString() + " <span class='label label-primary'>STOCK : " + obj[i].getStock.toString() + "</span></li></a>";                                                       
+                               html = "<a style='' href='javascript:setColaborador("+ obj[i].idColaborador.toString() +",\"" + obj[i].Nombres.toString() + "\",\"" + obj[i].Apellidos.toString() + "\",\"" + obj[i].Correo.toString() + "\","+ obj[i].idPerfil.toString() +")' class='collection-item'>" + obj[i].idColaborador.toString() + " - " + obj[i].Nombres.toString() + " " + obj[i].Apellidos.toString() + "</a>";                                   
+                               $("#searchRS").append(html);
                           }
 
                           //obj ? alert("CLIENTE REGISTRADO") : alert("HUBO PROBLEMAS AL REGISTAR EL CLIENTE");
                 }
         });	 
 
-    }else{ $("#autoproducto" + itempro + " a").remove(); }
+    }else{ $("#searchRS a").remove(); }
 
 
 }
 
 
-function setProducto(item,cod,nombre,preciounit,preciounit2,preciounit3,PrecioxMayor,stockmax){
+function setColaborador(dni,Nombres,Apellidos,Correo,Perfil){
 
-    $("#autoproducto" + item).css("display","none");
-    $("#nompro" + item).val(nombre);
-    //$("#nompro" + item).prop("readonly",true);
-    $("#nompro" + item).prop("disabled",true);
-    //$("#preciounit" + item).prop("readonly","");
-    $("#total" + item).prop("readonly","true");   
+
+    $("#searchRS").css("display","none");
+    $("#dni").val(dni);
+    $("#dni").focus();
+    $("#Nombres").val(Nombres);
+    $("#Nombres").focus();
+    $("#Apellidos").val(Apellidos);
+    $("#Apellidos").focus();
+    $("#Correo").val(Correo);
+    $("#Correo").focus();
+    $("#cboPerfil option:selected").attr("value")==$("#cboPerfil").val(Perfil);
+    $('select').formSelect();
+    $(".password").text("Nueva contraseña");
+    $("#dni").focus();
+
+    $("#btnregistrar").attr("disabled",true);
 
 }
+
+//----------------------------------------------------
+
+
+ //BUSQUEDA AUTOCOMPLETADO ENCUESTADOR
+
+ function autocompleta2(){
+        
+
+    if($("#search2").val()!="")
+    {
+        
+
+        $.ajax({
+           type: "POST",
+           url: './api-pcincog/encuestador/busqueda',
+           data:  {Nombres: $("#search2").val() },
+           success: function (response) {
+                          var obj = $.parseJSON(response);  
+        
+                          $("#searchRS2").css("display","block");                 
+                          $("#searchRS2 a").remove();
+                          html = "";
+
+                          for (var i = 0; i < obj.length; i++) {
+                              //alert(obj[i].idColaborador.toString());
+                              //html="<a href='javascript:setProducto("+ itempro +","+ obj[i].idProducto.toString() +",\"" + obj[i].NombreProducto.toString() + "\"," + obj[i].PrecioVenta.toString() + ","  + obj[i].PrecioVenta2.toString() + ","  + obj[i].PrecioVenta3.toString() + "," + obj[i].PrecioxMayor.toString() + "," + obj[i].getStock.toString() + ")' style='text-decoration:none;'><li class='list-group-item'>" + obj[i].idProducto.toString() + " - " + obj[i].NombreProducto.toString() + " <span class='label label-primary'>STOCK : " + obj[i].getStock.toString() + "</span></li></a>";                                                       
+                               html = "<a style='' href='javascript:setEncuestador("+ obj[i].idEncuestador.toString() +",\"" + obj[i].Nombres.toString() + "\",\"" + obj[i].Correo.toString() + "\",\"" + obj[i].Telefono.toString() +  "\",\"" + obj[i].Direccion.toString() + "\","+ obj[i].idDistrito.toString() +")' class='collection-item'>" + obj[i].idEncuestador.toString() + " - " + obj[i].Nombres.toString() + "</a>";                                   
+                               $("#searchRS2").append(html);
+                          }
+
+                          //obj ? alert("CLIENTE REGISTRADO") : alert("HUBO PROBLEMAS AL REGISTAR EL CLIENTE");
+                }
+        });	 
+
+    }else{ $("#searchRS a").remove(); }
+
+
+}
+
+
+function setEncuestador(dni,Nombres,Correo,Telefono,Direccion,Distrito){
+
+
+    $("#searchRS2").css("display","none");
+    $("#dni2").val(dni);
+    $("#dni2").focus();
+    $("#Nombres2").val(Nombres);
+    $("#Nombres2").focus();
+    $("#Telefono2").val(Telefono);
+    $("#Telefono2").focus();
+    $("#Direccion2").val(Direccion);
+    $("#Direccion2").focus();
+    $("#Correo2").val(Correo);
+    $("#Correo2").focus();
+    $("#cboDistrito option:selected").attr("value")==$("#cboDistrito").val(Distrito); 
+    $('select').formSelect();
+    $("#Password2").attr("disabled",true);
+    $("#dni2").focus();
+
+    $("#btnregistrar2").attr("disabled",true);
+    // //$("#preciounit" + item).prop("readonly","");
+    // $("#total" + item).prop("readonly","true");   
+
+}
+
+//----------------------------------------------------
 
  function CargarComboPerfil(){
     $.ajax({
@@ -153,7 +244,7 @@ function setProducto(item,cod,nombre,preciounit,preciounit2,preciounit3,PrecioxM
             //alert(obj);
             $("#cboPerfil").append(obj);
             /* Efecto objetos select formulario */
-            $('select').formSelect();
+            $('select').formSelect();            
         },
         error: function (resultado) {
             alert("Error");
@@ -178,3 +269,4 @@ function CargarComboDistrito(){
         }
     });
 }
+

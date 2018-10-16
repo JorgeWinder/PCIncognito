@@ -79,10 +79,14 @@
                 <span class="card-title" style="padding: 0 5% 10px 5%;">  
 
                         <div class="input-field" style="border: 50px;">
-                            <input id="search"  style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de colaborador" type="search" required>
+                            <input id="search" onkeyup="autocompleta()" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de colaborador" type="search" required>
                             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                             <i class="material-icons">close</i>
-                            <div id="searchResults" ></div>
+                            <div id="searchRS" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;display: none;">
+                                        <!-- <a style="" href="#" class="collection-item">45347734 - JORGE WINDER</a>
+                                        <a style="" href="#" class="collection-item">29722385 - CLAUDIA VELASQUEZ</a>
+                                        <a style="" href="#" class="collection-item">36589757 - ROSA VASQUEZ MORENO</a> -->
+                            </div>
                         </div>          
 
                 </span>
@@ -127,7 +131,7 @@
                     <div class="input-field col s12 l6">
                                     <i class="material-icons prefix">https</i>
                                     <input id="Password" type="password" value="">
-                                    <label for="Password" class="">Contraseña</label>                                    
+                                    <label for="Password" class="password">Contraseña</label>                                    
                     </div>        
                     <div class="input-field col s12 l6">
                     </div>
@@ -160,13 +164,13 @@
                 <span class="card-title" style="padding: 0 5% 10px 5%;">  
 
                         <div class="input-field" style="border: 50px;">
-                            <input id="search" onkeyup="autocompleta(1)" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de encuestador" type="search" required>
+                            <input id="search2" onkeyup="autocompleta2()" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de encuestador" type="search" required>
                             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                             <i class="material-icons">close</i>
-                            <div id="search-results" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;">
-                                        <a style="" href="#" class="collection-item">45347734 - JORGE WINDER</a>
+                            <div id="searchRS2" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;display: none;">
+                                        <!-- <a style="" href="#" class="collection-item">45347734 - JORGE WINDER</a>
                                         <a style="" href="#" class="collection-item">29722385 - CLAUDIA VELASQUEZ</a>
-                                        <a style="" href="#" class="collection-item">36589757 - ROSA VASQUEZ MORENO</a>
+                                        <a style="" href="#" class="collection-item">36589757 - ROSA VASQUEZ MORENO</a> -->
                             </div>
                         </div>          
 
@@ -252,101 +256,8 @@
                 <!--<span class="card-title center-align" style="border-left: 7px solid #e85b21;border-right: 7px solid #e85b21;">INGRESAR</span>-->
                 <span class="card-title" style="color: #f39c12;padding-bottom: 10px;"></span>
                 
-                    <div class="row">
 
-                        <div class="input-field col l4 s12">
-
-                            <i class="material-icons prefix">business</i>
-                            <input type="text" id="autocomplete-input2" class="autocomplete">
-                            <label for="autocomplete-input2">Ingrese código de proyecto</label>
-
-                        </div>
-
-                        <div class="input-field col l8 s12">
-                            <!-- <i class="material-icons prefix">business</i> -->
-                            <input id="icon_telephone" type="text" class="validate" disabled>
-                            <label for="icon_telephone">Nombre de proyecto</label>
-                        </div>
-
-
-                        <div class="col s12 l12">
-
-                            <table class="highlight responsive-table" style="margin-top: 20px;">
-                                    <thead>
-                                    <tr style="color: #f39c12;">
-                                        <th>N.° de DNI</th>
-                                        <th>Nombres y apellidos</th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-
-                                    <tbody>
-                                    <tr>
-                                        <td>45347734</td>
-                                        <td>Jorge Gerald Winder Avila</td>
-                                        <td class="center-left">
-                                            <a href="#modal1" class="waves-effect waves-light btn modal-trigger" style="background-color: #f39c12;">Establecimientos asignados</a>    
-                                        </td> 
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">add_box</i></a></td>
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                                                                               
-                                    </tr>
-                                    <tr>
-                                        <td>29722385</td>
-                                        <td>Claudia Alejandra Velasquez Diaz</td>
-                                        <td class="center-left">
-                                            <a href="#modal1" class="waves-effect waves-light btn modal-trigger" style="background-color: #f39c12;">Establecimientos asignados</a>    
-                                        </td> 
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">add_box</i></a></td>
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                                           
-                                    </tr>
-                                    <tr>
-                                        <td>00000000</td>
-                                        <td>
-
-                                            <div class="input-field">
-                                                <!-- <i class="material-icons prefix">search</i>                                             -->
-                                                <input id="search" placeholder="Buscar encuestador">
-                                                <div class="search-results" style="padding-left: 5px;">
-                                                    <a style="display: block;" href="#">Jorge Winder Avila</a>
-                                                    <a style="display: block;" href="#">Claudia Velasquez</a>
-                                                    <a style="display: block;"  href="#">Rosa María Flores</a>
-                                                </div>
-                                            </div>
-
-                                        </td>
-                                        <td class="center-left">
-                                            <a href="./agencias-asignadas" class="waves-effect waves-light btn disabled" style="background-color: #f39c12;">Establecimientos asignados</a>    
-                                        </td> 
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">add_box</i></a></td>
-                                        <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                                        
-                                    </tr>
-                                    </tbody>
-                            </table>
-
-                    </div>
-
-                        
-                    </div>
-
-                    <div class="row">
-
-                    </div>
                     
-                    <br>
-
-                    <div class="row">
-                        
-                        <div class="col s12 m4 l4">
-                            <a href="#" class="waves-effect waves-light btn" style="width: 100%;background-color: #1b479a;">Agregar nuevo</a>
-                        </div>
-                                             
-                    </div>
-
             </div>
 
         </div>

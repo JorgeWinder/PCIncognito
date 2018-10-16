@@ -15,7 +15,7 @@
                 
              
                 if ($("#cbotipouser option:selected").attr("value")==1) {
-                    window.location="pautas-e-indicaciones";
+                    LoginEnc();
                 } else if($("#cbotipouser option:selected").attr("value")==3){
                     LoginAdmin();
                 }
@@ -48,4 +48,22 @@
                 });                                            
 
         
+}
+
+function LoginEnc(){
+                                                               
+    $.ajax({
+        type: 'POST',
+        url: './api-pcincog/ecuestador/acceso',                    
+        data:  { Correo: $("#Correo").val().trim().toUpperCase(), Password: $("#Password").val() },
+        success: function (response) {
+            var obj = $.parseJSON(response);
+            obj ? window.location.href = './pautas-e-indicaciones' : alert("Verifique su correo y/o password");
+        },
+        error: function (response) {
+            alert("Hubo un error" + response.toString());
+        }
+    });                                            
+
+
 }

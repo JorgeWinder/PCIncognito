@@ -9,7 +9,7 @@
 
     <!-- Script / Estilos CSS / Recursos solo de la página actual -->
     <script src="Recursos/js/ion.rangeSlider.js"></script>
-    <script src="View/Scripts/gestor-de-proyectos.js"></script>
+    <script src="View/Scripts/mantenimiento-entidades.js"></script>
     <link rel="stylesheet" href="Recursos/css/ion.rangeSlider.css" /> 
     <link rel="stylesheet" href="Recursos/css/ion.rangeSlider.skinFlat.css" />
     <!-- Fin de Script / Estilos CSS  -->
@@ -65,8 +65,7 @@
         <li class="tab col s4"><a class="active" href="#test1">Registro de entidad</a></li>
         <li class="tab col s4"><a href="#test2">Registro de establecimientos</a></li>
         <li class="tab col s4"><a href="#test3">Reporte por entidad</a></li>
-        <!-- <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li> -->
-        
+        <!-- <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li> -->        
       </ul>
     </div>
 
@@ -76,59 +75,51 @@
     
         <div class="card white">
             <div class="card-content">
-                <!--<span class="card-title center-align" style="border-left: 7px solid #e85b21;border-right: 7px solid #e85b21;">INGRESAR</span>-->
-                <span class="card-title" style="color: #f39c12;padding-bottom: 10px;"></span>
+
+                <span class="card-title" style="padding: 0 5% 10px 5%;">  
+
+                        <div class="input-field" style="border: 50px;">
+                            <input id="search" onkeyup="autocompleta()" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de entidad" type="search" required>
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>                            
+                            <div id="searchRS" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;display: none;">
+                                        <!-- <a style="" href="#" class="collection-item">45347734 - JORGE WINDER</a>
+                                        <a style="" href="#" class="collection-item">29722385 - CLAUDIA VELASQUEZ</a>
+                                        <a style="" href="#" class="collection-item">36589757 - ROSA VASQUEZ MORENO</a> -->
+                            </div>
+                        </div>          
+
+                </span>
                 
-                    <div class="row">
-                        
+                    <div class="row">                    
 
-                        <div class="input-field col l9 s12">
-                            <!-- <i class="material-icons prefix">business</i> -->
-                            <input id="icon_telephone" type="text" class="validate">
-                            <label for="icon_telephone">Nombre de la entidad</label>
+                        <div class="input-field col s12 l4">
+                            <i class="material-icons prefix">copyright</i>
+                            <input id="idEntidad" type="text" placeholder="Código entidad" readonly>            
                         </div>
 
-                        <div class="input-field col s12 l6">
-                            <i class="material-icons prefix">date_range</i>
-                            <input type="text" class="datepicker"  placeholder="Fecha de inicio">            
-                        </div>
-
-                        <div class="input-field col s12 l6">
-                            <i class="material-icons prefix">date_range</i>
-                            <input type="text" class="datepicker"  placeholder="Fecha de fin">            
-                        </div>
-
-                        <div class="input-field col l6 s12">
+                        <div class="input-field col l10 s12">
 
                             <i class="material-icons prefix">business_center</i>
-                            <input type="text" id="autocomplete-input" class="autocomplete">
-                            <label for="autocomplete-input">Cliente</label>
+                            <input id="NombreEntidad" type="text">
+                            <label for="NombreEntidad">Nombre de la entidad</label>
 
                         </div>
 
-                        <div class="input-field col l6 s12">
-                            <i class="material-icons prefix">explicit</i>
-                            <select>
-                            <option value="" disabled selected>Seleccione estado del proyecto</option>
-                            <option value="1">En curso</option>
-                            <option value="2">Terminado</option>
-                            <option value="3">Suspendido</option>
-                            </select>                        
-                        </div>
-                        
-                    </div>
-                    
+                    </div>    
+
+                    <br>
                     <br>
 
                     <div class="row">
                         <div class="col s12 m4 l4">
-                                <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Registrar</a>
+                                <a id="btnregistrar" href="JavaScript:void()" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Registrar</a>
                         </div>
                         <div class="col s12 m4 l4">
-                                <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Modificar</a>
+                                <a id="btnmodificar" href="JavaScript:void()" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Modificar</a>
                         </div>
                         <div class="col s12 m4 l4">
-                                <a href="./pautas-e-indicaciones" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Eliminar</a>
+                                <a id="btneliminar" href="JavaScript:void()" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Eliminar</a>
                         </div>                        
                     </div>
 
@@ -151,40 +142,42 @@
         
             <div class="row">
 
-                <div class="input-field col l4 s12">
+                <div class="input-field col l6 s12">
 
-                    <i class="material-icons prefix">business</i>
-                    <input type="text" id="autocomplete-input2" class="autocomplete">
-                    <label for="autocomplete-input2">Ingrese entidad</label>
+                    <i class="material-icons prefix">business_center</i>
+                    <input type="hidden" id="idEntidad2">
+                    <input type="text" id="search2" onkeyup="autocompleta2()">
+                    <label for="search2">Seleccione una entidad</label>
+                    <div id="searchRS2" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;display: none;">
+                                        <!-- <a style="" href="#" class="collection-item">45347734 - JORGE WINDER</a>
+                                        <a style="" href="#" class="collection-item">29722385 - CLAUDIA VELASQUEZ</a>
+                                        <a style="" href="#" class="collection-item">36589757 - ROSA VASQUEZ MORENO</a> -->
+                    </div>
 
                 </div>
 
+                <div class="input-field col l3 s12">
+                    <a id="" href="JavaScript:void()" onclick="$('#btnadd').attr('disabled','true');$('#tablaestable tbody tr').remove();$('#search2').val('').focus();" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Otra entidad</a>
+                </div>                
+
                 <div class="col s12 l12">
 
-                    <table class="highlight responsive-table" style="margin-top: 20px;">
+                    <table id="tablaestable" class="highlight responsive-table" style="margin-top: 20px;">
                             <thead>
-                           
-                            <tr>
-                                <td>Establecimiento</td>
-                                <td>
-
-                                    <div class="input-field">
-                                        <!-- <i class="material-icons prefix">search</i>-->
-                                        <input id="search" placeholder="Buscar establecimiento">
-                                        <div class="search-results" style="padding-left: 5px;">
-                                            <a style="display: block;" href="#">Establecimiento 1</a>
-                                            <a style="display: block;" href="#">Establecimiento 2</a>
-                                            <a style="display: block;" href="#">Establecimiento 3</a>
-                                        </div>
-                                    </div>
-
-                                </td>
-                                
-                                <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">add_box</i></a></td>
-                                <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">edit</i></a></td>
-                                <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                                
-                            </tr>
+                                <tr>
+                                    <td class="center">Código</td>
+                                    <td>Nombre de establecimiento</td>
+                                    <td>Ubicación</td>
+                                    <td></td>                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <!-- <tr>
+                                <td class='center'>00</td>
+                                <td>******************</td>
+                                <td>******************</td>                                
+                                <td><a href='#modal1' class='modal-trigger'><i class='material-icons prefix' style='font-size: 30pt;'>add_box</i></a><a href='#'><i class='material-icons prefix' style='font-size: 30pt;'>remove_circle_outline</i></a></td>
+                            </tr> -->
                             </tbody>
                     </table>
 
@@ -202,7 +195,7 @@
             <div class="row">
                 
                 <div class="col s12 m4 l4">
-                    <a href="#" class="waves-effect waves-light btn" style="width: 100%;background-color: #1b479a;">Agregar nuevo</a>
+                    <a href="javascript:void()" id="btnadd" class="waves-effect waves-light btn" style="width: 100%;background-color: #1b479a;">Agregar nuevo</a>
                 </div>
                                      
             </div>
@@ -286,68 +279,10 @@
 
   <!-- Modal Structure -->
 
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h5 style="color: #112d5c;">Establecimientos asignados</h5>
-      <hr>
-      <p>
-                <table class="highlight responsive-table" style="margin-top: 20px;">
-                        <thead>
-                        <tr style="color: #f39c12;">
-                            <th>Entidad</th>
-                            <th>Establecimiento</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Interbank</td>
-                            <td>IBK Plaza Vea Brasil</td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">save</i></a></td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                                                                   
-                        </tr>
-                        <tr>
-                            <td>Interbank</td>
-                            <td>IBK Centro Civico Real Plaza</td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">save</i></a></td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                               
-                        </tr>
-                        <tr>
-                            <td>*********</td>
-                            <td>
-                                <div class="input-field">
-                                    
-                                    <input id="search" placeholder="Buscar establecimiento">
-                                    <div class="search-results" style="padding-left: 5px;">
-                                        <a style="display: block;" href="#">IBK Plaza Vea Brasil</a>
-                                        <a style="display: block;" href="#">IBK Centro Civico Real Plaza</a>
-                                        <a style="display: block;"  href="#">IBK C.C. Royal Plaza</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">save</i></a></td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                            
-                        </tr>
-                        </tbody>
-                </table>
+<?php 
+ include_once './View/modal-asigna-establecimiento.php';
+ ?>
 
-      </p>
-
-        <div class="row">                        
-                <div class="col s12 m6 l6">
-                    <a href="#" class="waves-effect waves-light btn" style="width: 100%;background-color: #1b479a;">Nuevo establecimiento</a>
-                </div>                                             
-        </div>
-
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-light btn" style="background-color: #f39c12;">Salir</a>
-    </div>
-  </div>
 
   <!-- Fin modal Structure -->
 
