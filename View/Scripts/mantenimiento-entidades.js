@@ -112,14 +112,28 @@ $(document).ready(function(){
                                 "<td><a href='#modal1' class='modal-trigger'><i class='material-icons prefix' style='font-size: 30pt;'>add_box</i></a><a href='#'><i class='material-icons prefix' style='font-size: 30pt;'>remove_circle_outline</i></a></td>" +
                             "</tr>";
          
-      $("#tablaestable tbody").append(contenido);       
+      $("#tablaestable tbody").append(contenido);    
+      Limpiar();   
 
       });
 
     //-------------------------
 
 
+
 });
+
+function Limpiar() {
+    
+    $("#idEstablecimiento").val("");
+    $("#NombreEstablecimiento").val("");
+    $("#Direccion").val("");
+    $("#Direccion").val("");
+    $("#cboDepartamento option:selected").attr("value")==$("#cboDepartamento").val("0");
+    $("#cboProvincia option:selected").attr("value")==$("#cboProvincia").val("0");
+    $("#cboDistrito option:selected").attr("value")==$("#cboDistrito").val("0");
+
+}
 
 // AUTOCOMPLETA BUSQUEDA ENTIDAD 1
 

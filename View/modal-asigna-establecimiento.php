@@ -22,21 +22,21 @@
                     <div class="input-field col s12 l6">
                             <i class="material-icons prefix">map</i>
                             <select id="cboDepartamento">
-                            <option value="" disabled selected>Seleccione departemento</option>
+                            <option value="0" disabled selected>Seleccione departemento</option>
                             <!-- <option value="1">Administrador</option>                             -->
                             </select>
                     </div>
                     <div class="input-field col s12 l6">
                             <i class="material-icons prefix">map</i>
                             <select id="cboProvincia">
-                            <option value="" disabled selected>Seleccione provincia</option>
+                            <option value="0" disabled selected>Seleccione provincia</option>
                             <!-- <option value="1">Administrador</option>                             -->
                             </select>
                     </div>
                     <div class="input-field col s12 l12">
                             <i class="material-icons prefix">map</i>
                             <select id="cboDistrito">
-                            <option value="" disabled selected>Seleccione distrito</option>
+                            <option value="0" disabled selected>Seleccione distrito</option>
                             <!-- <option value="1">Administrador</option>                             -->
                             </select>
                     </div>

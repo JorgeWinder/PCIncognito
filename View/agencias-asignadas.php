@@ -1,3 +1,13 @@
+<?php  
+
+	session_start(); 
+
+    if(empty($_SESSION['idEncuestador'])) {        
+        echo '<script>  window.location.href = "'. URL . '/";</script>';
+    } 
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,13 +51,13 @@
     <div class="row">
         <div class="input-field col s12 l6">
                           <i class="material-icons prefix">credit_card</i>
-                          <input id="icon_prefix3" type="text" class="validate" value="45347734" style="font-weight: 700;" disabled>
-                          <label for="icon_prefix3" class="">N.° de documento</label>
+                          <input id="idEncuestador" type="text" value="<?php echo $_SESSION['idEncuestador']; ?>" style="font-weight: 600;" readonly>
+                          <label for="idEncuestador" class="">N.° de documento</label>
         </div>        
         <div class="input-field col s12 l6">
                           <i class="material-icons prefix">account_box</i>
-                          <input id="icon_prefix3" type="text" class="validate" value="Jorge Winder" style="font-weight: 700;" disabled>
-                          <label for="icon_prefix3" class="">Nombres</label>
+                          <input id="Nombres" type="text" value="<?php echo $_SESSION['Nombres']; ?>" style="font-weight: 600;" readonly>
+                          <label for="Nombres" class="">Nombres de encuestador</label>
         </div>
     </div>
 
@@ -55,8 +65,9 @@
     <div class="row">
         <div class="input-field col s12 l12">
                           <i class="material-icons prefix">domain</i>
-                          <input id="icon_prefix3" type="text" class="validate" value="Enc. cliente incógnito Interbank" style="font-weight: 700;" disabled>
-                          <label for="icon_prefix3" class="">Proyecto</label>
+                          <input type="hidden" id="idProyecto" value="<?php echo $_REQUEST['proyec']; ?>">
+                          <input id="NombreProyecto" type="text" class="validate" value="Enc. cliente incógnito Interbank" style="font-weight: 600;" readonly>
+                          <label for="NombreProyecto" class="">Proyecto</label>
         </div>               
     </div>
 
@@ -71,7 +82,7 @@
     <div class="row">
         <div class="col s12 l12">
 
-            <table class="highlight responsive-table">
+            <table id="tablaAgencias" class="highlight responsive-table">
                     <thead>
                     <tr style="color: #f39c12;">
                         <th>Departamento</th>
@@ -85,7 +96,7 @@
                     </thead>
 
                     <tbody>
-                    <tr>
+                    <!-- <tr>
                         <td>Lima</td>
                         <td>Lima</td>
                         <td>Pueblo Libre</td>
@@ -123,7 +134,7 @@
                             <a href="#" style=""><i class="material-icons prefix">filter_4</i></a>
                         </td>
                         <td></td>
-                    </tr>
+                    </tr> -->
                     </tbody>
             </table>
 
@@ -134,7 +145,7 @@
             
     
 </div>
-
+<br><br>
 </section>
 
 </main>    

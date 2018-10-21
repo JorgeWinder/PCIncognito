@@ -1,3 +1,13 @@
+<?php  
+
+	session_start(); 
+
+    if(empty($_SESSION['idEncuestador'])) {        
+        echo '<script>  window.location.href = "'. URL . '/";</script>';
+    } 
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +20,7 @@
     <!-- Script / Estilos CSS / Recursos solo de la página actual -->
 
     <script src="View/Scripts/login.js"></script> 
+    <script src="View/Scripts/proyectos-asignados.js"></script> 
 
     <!-- Fin de Script / Estilos CSS  -->
 
@@ -55,20 +66,20 @@
     <div class="row">
         <div class="input-field col s12 l6">
                           <i class="material-icons prefix">credit_card</i>
-                          <input id="icon_prefix3" type="text" class="validate" value="45347734" style="font-weight: 700;" disabled>
-                          <label for="icon_prefix3" class="">N.° de documento</label>
+                          <input id="idEncuestador" type="text" value="<?php echo $_SESSION['idEncuestador']; ?>" style="font-weight: 600;" readonly>
+                          <label for="idEncuestador" class="">N.° de documento</label>
         </div>        
         <div class="input-field col s12 l6">
                           <i class="material-icons prefix">account_box</i>
-                          <input id="icon_prefix3" type="text" class="validate" value="Jorge Winder" style="font-weight: 700;" disabled>
-                          <label for="icon_prefix3" class="">Nombres</label>
+                          <input id="Nombres" type="text" value="<?php echo $_SESSION['Nombres']; ?>" style="font-weight: 600;" readonly>
+                          <label for="Nombres" class="">Nombres de encuestador</label>
         </div>
     </div>
 
     <div class="row">
         <div class="col s12 l12">
 
-            <table class="highlight responsive-table">
+            <table id="tabladetaproyecto" class="highlight responsive-table">
                     <thead>
                     <tr style="color: #f39c12;">
                         <th>Id</th>
@@ -80,7 +91,7 @@
                     </thead>
 
                     <tbody>
-                    <tr>
+                    <!-- <tr>
                         <td>1801</td>
                         <td>Enc. cliente incógnito BBVA</td>
                         <td>En proceso</td>
@@ -100,7 +111,7 @@
                         <td>Terminado</td>
                         <td><div class="progress"><div class="determinate" style="width: 100%"></div></div></td>
                         <td class="center-align"><a href="./agencias-asignadas" class="waves-effect waves-light btn" style="background-color: #f39c12;">Ir</a></td>
-                    </tr>
+                    </tr> -->
                     </tbody>
             </table>
 

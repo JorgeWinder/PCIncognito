@@ -60,15 +60,15 @@
             // Connect
             $db = $db->connect();
             $stmt = $db->query($sql);
-            $colaboradores = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $resultado = $stmt->fetchAll(PDO::FETCH_OBJ);
             $db = null;                 
             
-            if(count($colaboradores)==1 && password_verify($Password, $colaboradores[0]->Password))
+            if(count($resultado)==1 && password_verify($Password, $resultado[0]->Password))
             {   
-            //    session_start(); 
-    
-            //    $_SESSION["Nombres"]=$colaboradores[0]->Nombres;
-            //    $_SESSION["Correo"]=$colaboradores[0]->Correo;
+               session_start(); 
+               $_SESSION["idEncuestador"]=$resultado[0]->idEncuestador;
+               $_SESSION["Nombres"]=$resultado[0]->Nombres;
+               $_SESSION["Correo"]=$resultado[0]->Correo;
                
                echo json_encode(TRUE); 
             }  else {       
@@ -797,7 +797,6 @@
 
 
 
-
     $app->get('/api-pcincog/establecimiento/get',  function(Request $request, Response $response) { 
 
        $idEstablecimiento = $request->getParam('idEstablecimiento');
@@ -1034,4 +1033,152 @@
                 //echo '{"error": {"text": '.$e->getMessage().'}';
                 echo json_encode(FALSE);
             }
-        });           
+        });     
+        
+        
+
+          // Listar detalle proyecto asignados
+
+          $app->get('/api-pcincog/DetalleProyectosAsignados/get',  function(Request $request, Response $response) { 
+    
+            $idEncuestador = $request->getParam('idEncuestador');
+
+            $sql = "SELECT dp.* , pro.NombreProyecto , pro.idEstadoProyecto , ep.EstadoProyecto 
+            FROM destalleproyecto dp , proyecto pro , estadoproyecto ep
+            where pro.idProyecto=dp.idProyecto and pro.idEstadoProyecto=ep.idEstadoProyecto AND dp.idEncuestador='$idEncuestador'";
+            
+            try{
+                
+                 // Get DB Object
+                 $db = new db();
+                 // Connect
+                 $db = $db->connect();
+                 $stmt = $db->query($sql);
+                 $Perfil = $stmt->fetchAll(PDO::FETCH_OBJ);
+                 $db = null;
+                 
+                 if(count($Perfil)>0){            
+                     
+                     $resultado="";
+                     $cant=0;
+                     foreach ($Perfil as  $row) {
+                         $cant = $cant + 1;   
+                         //$resultado = $resultado . "<option value='" . $row->idDepartamento . "'>" . $row->NomDepartemento . "</option>";                         
+
+                        $resultado = $resultado . "<tr>
+                                <td>" . $row->idProyecto . "</td>
+                                <td>" . $row->NombreProyecto . "</td>
+                                <td>" . $row->EstadoProyecto . "</td>
+                                <td><div class='progress'><div class='determinate' style='width: 1%'></div></div></td>
+                                <td class='center-align'><a href='./agencias-asignadas?proyec=" . $row->idProyecto . "' class='waves-effect waves-light btn' style='background-color: #f39c12;'>Ir</a></td>
+                            </tr>";
+
+                        //$resultado = $resultado . "hola";
+                     }
+         
+                     echo json_encode($resultado);
+                 }
+                
+                
+            } catch(PDOException $e){
+                 echo '{"error": {"text": '.$e->getMessage().'}';
+            }
+            
+         });   
+         
+
+          // Listar detalle agecias asignadas encuestador
+
+          $app->get('/api-pcincog/DetalleAgenciasAsignadas/get',  function(Request $request, Response $response) { 
+    
+            $idProyecto = $request->getParam('idProyecto');
+            $idEncuestador = $request->getParam('idEncuestador');
+            
+            $sql = "SELECT proy.NombreProyecto ,es.idEntidad, ent.NombreEntidad, es.idEstablecimiento, es.NombreEstablecimiento, dep.NomDepartemento,  pro.NomProvincia, dis.NomDistrito, va.idVisitasAsignadas, va.idEncuestador 
+            FROM entidad ent , establecimiento es , distrito dis , provincia pro , departamento dep , visitasasignadas va , proyecto proy
+            WHERE es.idEntidad=ent.idEntidad and es.idDistrito=dis.idDistrito AND va.idEstablecimiento=es.idEstablecimiento AND 
+            proy.idProyecto=va.idProyecto AND dis.idProvincia=pro.idProvincia and pro.idDepartamento=dep.idDepartamento and va.idProyecto='$idProyecto' and va.idEncuestador='$idEncuestador'";
+
+            try{
+                
+                 // Get DB Object
+                 $db = new db();
+                 // Connect
+                 $db = $db->connect();
+                 $stmt = $db->query($sql);
+                 $Perfil = $stmt->fetchAll(PDO::FETCH_OBJ);
+                 $db = null;
+                 
+                 if(count($Perfil)>0){            
+                     
+                     $resultado="";
+                     $cant=0;
+                     foreach ($Perfil as  $row) {
+                         $cant = $cant + 1;   
+                         //$resultado = $resultado . "<option value='" . $row->idDepartamento . "'>" . $row->NomDepartemento . "</option>";                         
+
+                            $resultado = $resultado . "<tr>
+                            <td><input type='hidden' id='NombrePro' value='" . $row->NombreProyecto . "'>" . $row->NomDepartemento . "</td>
+                            <td>" . $row->NomProvincia . "</td>
+                            <td>" . $row->NomDistrito . "</td>
+                            <td>" . $row->NombreEntidad . "</td>
+                            <td class='center-align'>
+                                <a href='./detalle-de-visita?visita=1&idva=" . $row->idVisitasAsignadas . "&dnienc=" . $row->idEncuestador . "' style=''><i class='material-icons prefix'>filter_1</i></a>
+                                <a href='./detalle-de-visita?visita=2&idva=" . $row->idVisitasAsignadas . "&dnienc=" . $row->idEncuestador . "' style=''><i class='material-icons prefix'>filter_2</i></a>
+                                <a href='./detalle-de-visita?visita=3&idva=" . $row->idVisitasAsignadas . "&dnienc=" . $row->idEncuestador . "' style=''><i class='material-icons prefix'>filter_3</i></a>
+                                <a href='./detalle-de-visita?visita=4&idva=" . $row->idVisitasAsignadas . "&dnienc=" . $row->idEncuestador . "' style=''><i class='material-icons prefix'>filter_4</i></a>
+                            </td>
+                            <td></td>
+                        </tr>";
+
+
+
+                        //$resultado = $resultado . "hola";
+                     }
+         
+                     echo json_encode($resultado);
+                 }
+                
+                
+            } catch(PDOException $e){
+                 echo '{"error": {"text": '.$e->getMessage().'}';
+            }
+            
+         });   
+  
+         
+          // Busqueda visita de establecimientos asignado
+
+          $app->get('/api-pcincog/VisitaAsignada/get',  function(Request $request, Response $response) { 
+    
+            $idVisitasAsignadas = $request->getParam('idVisitasAsignadas');
+            $idEncuestador = $request->getParam('idEncuestador');
+
+            $sql = "SELECT vis.idProyecto, vis.idVisitasAsignadas,  enc.Nombres, vis.idEncuestador, enti.NombreEntidad, vis.idEstablecimiento, esta.NombreEstablecimiento, esta.Direccion
+            FROM visitasasignadas vis, establecimiento esta, entidad enti, encuestador enc
+            WHERE vis.idEstablecimiento=esta.idEstablecimiento and esta.idEntidad=enti.idEntidad and 
+            enc.idEncuestador=vis.idEncuestador and vis.idVisitasAsignadas='$idVisitasAsignadas'";
+            
+            try{
+                
+                 // Get DB Object
+                 $db = new db();
+                 // Connect
+                 $db = $db->connect();
+                 $stmt = $db->query($sql);
+                 $resultado = $stmt->fetchAll(PDO::FETCH_OBJ);
+                 $db = null;                            
+                              
+                if(count($resultado)>0){
+                    echo json_encode($resultado); 
+                }else{
+                    echo json_encode("Objeto vacio"); 
+                }
+                
+                
+            } catch(PDOException $e){
+                 echo '{"error": {"text": '.$e->getMessage().'}';
+            }
+            
+         });       
+
