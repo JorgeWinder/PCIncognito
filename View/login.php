@@ -35,7 +35,7 @@
         <script type="text/javascript" src="Recursos/js/materialize.min.js"></script>
 
 <?php 
- include_once './View/Plantillas/menulogin.php';
+ include_once './View/Plantillas/menulogin.php';;
  ?>
 
 <main>
