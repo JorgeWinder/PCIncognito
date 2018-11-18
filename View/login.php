@@ -40,7 +40,7 @@
 
 <main>
 
-    <section class="container" style="margin: 50px auto 0;max-width: 400px;">
+    <section class="container" id="form" style="margin: 50px auto 0;max-width: 400px;">
 
         <div class="card white">
             <div class="card-content">

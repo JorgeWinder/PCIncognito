@@ -27,7 +27,34 @@
 
       });
   
-        
+      //funcion para enter con boton
+      $(document).ready(function(){     
+//        $("#btnIniciar").keypress(function(e) {
+        $("#form").keypress(function(e) {
+          if(e.which == 13) {
+            if($("#Correo").val()!='' && $("#Password").val()!='')
+            {   
+                if ($("#cbotipouser option:selected").attr("value")!="") {
+                    
+                 
+                    if ($("#cbotipouser option:selected").attr("value")==1) {
+                        LoginEnc();
+                    } else if($("#cbotipouser option:selected").attr("value")==3){
+                        LoginAdmin();
+                    }
+                
+                }else{alert("Debe seleccionar el tipo de usuario");}                
+            }else{
+                 alert("Debes ingresar tu correo y password");
+            }    
+          }
+        });
+  });
+      
+
+
+
+
  });
 
 
