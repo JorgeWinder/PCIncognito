@@ -10,9 +10,14 @@
 
 
     $("#btnnuevo2").click(function(){
-        nuevoEncuestador();
+        nuevoEncuestador(); //se llama a funcion para limpiar campos en el evento click del boton NUEVO
     });
 
+    //$("#nomx").html("Jorge");
+
+    //------- Modal -----------
+
+    $('.modal').modal(); // se llama a evento modal de jquery para permitir pop up modal de materialize
 
     /* Habilitar tabs */
 

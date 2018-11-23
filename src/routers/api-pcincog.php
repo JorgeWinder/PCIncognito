@@ -171,7 +171,7 @@
         $Nombres = $request->getParam('Nombres');
         
         //$sql="SELECT * FROM colaborador where  idColaborador like '%$Nombres%' or  Apellidos like '%$Nombres%'";
-        $sql="SELECT * FROM colaborador where  idColaborador like '%$Nombres%' OR Apellidos like '%$Nombres%'";
+        $sql="SELECT * FROM colaborador where  idColaborador like '%$Nombres%' OR concat(Nombres , ' ', Apellidos ) like '%$Nombres%'";
 
         try{
             

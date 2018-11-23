@@ -227,10 +227,8 @@
                                     <input id="Password2" type="password" value="">
                                     <label for="Password2" class="">Contraseña</label>                                    
                     </div>        
-                    <div class="input-field col s12 l6">
-                    <i class="material-icons prefix">vpn_key</i>
-                        <!-- <input id="Password" type="password" value=""> -->
-                        <label for="Password" class="password">Cambiar password</label> 
+                    <div class="input-field col s12 l4">
+                        <a href="#modal1" class='modal-trigger'><i class="material-icons prefix" style="float: left;">vpn_key</i><label style="float: left;color: blue;padding-top: 15px;cursor: pointer;"><u>CAMBIAR CONTRASEÑA</u></label></a>
                     </div>
                 </div>
 
@@ -279,71 +277,11 @@
 </section>
 
 
-  <!-- Modal Structure -->
+   <!-- Modal Structure -->
 
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h5 style="color: #112d5c;">Establecimientos asignados</h5>
-      <hr>
-      <p>
-                <table class="highlight responsive-table" style="margin-top: 20px;">
-                        <thead>
-                        <tr style="color: #f39c12;">
-                            <th>Entidad</th>
-                            <th>Establecimiento</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Interbank</td>
-                            <td>IBK Plaza Vea Brasil</td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">save</i></a></td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                                                                   
-                        </tr>
-                        <tr>
-                            <td>Interbank</td>
-                            <td>IBK Centro Civico Real Plaza</td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">save</i></a></td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                               
-                        </tr>
-                        <tr>
-                            <td>*********</td>
-                            <td>
-                                <div class="input-field">
-                                    
-                                    <input id="search" placeholder="Buscar establecimiento">
-                                    <div class="search-results" style="padding-left: 5px;">
-                                        <a style="display: block;" href="#">IBK Plaza Vea Brasil</a>
-                                        <a style="display: block;" href="#">IBK Centro Civico Real Plaza</a>
-                                        <a style="display: block;"  href="#">IBK C.C. Royal Plaza</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">save</i></a></td>
-                            <td><a href="#"><i class="material-icons prefix" style="font-size: 30pt;">remove_circle_outline</i></a></td>
-                            
-                        </tr>
-                        </tbody>
-                </table>
-
-      </p>
-
-        <div class="row">                        
-                <div class="col s12 m6 l6">
-                    <a href="#" class="waves-effect waves-light btn" style="width: 100%;background-color: #1b479a;">Nuevo establecimiento</a>
-                </div>                                             
-        </div>
-
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-light btn" style="background-color: #f39c12;">Salir</a>
-    </div>
-  </div>
-
+<?php 
+ include_once './View/modal-cambia-password-us.php';
+ ?>
   <!-- Fin modal Structure -->
 
 </main>    
