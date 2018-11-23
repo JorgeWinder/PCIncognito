@@ -8,6 +8,12 @@
     CargarComboPerfil();
     CargarComboDistrito();
 
+    $("#nomx").html("Jorge");
+
+    //------- Modal -----------
+
+    $('.modal').modal();
+
     /* Habilitar tabs */
 
     $('.tabs').tabs();
