@@ -142,6 +142,8 @@
         
             <div class="row">
 
+
+                <!-- div de opción "Seleccione una entidad" -->
                 <div class="input-field col l6 s12">
 
                     <i class="material-icons prefix">business_center</i>
@@ -156,9 +158,11 @@
 
                 </div>
 
+                <!-- div de boton OTRA ENTIDAD -->
                 <div class="input-field col l3 s12">
                     <a id="" href="JavaScript:void()" onclick="$('#btnadd').attr('disabled','true');$('#tablaestable tbody tr').remove();$('#search2').val('').focus();" class="waves-effect waves-light btn" style="width: 100%;background-color: #f39c12;">Otra entidad</a>
                 </div>                
+
 
                 <div class="col s12 l12">
 

@@ -137,6 +137,7 @@ function Limpiar() {
 
 // AUTOCOMPLETA BUSQUEDA ENTIDAD 1
 
+
 function autocompleta(){
 
     if($("#search").val()!="")
@@ -167,6 +168,8 @@ function autocompleta(){
 
 }
 
+
+
 function setEntidad(idEntidad,NombreEntidad){
 
     $("#searchRS").css("display","none");
@@ -178,6 +181,8 @@ function setEntidad(idEntidad,NombreEntidad){
     $("#btnregistrar").attr("disabled","true");
       
   }
+
+  
 
 
   // AUTOCOMPLETA BUSQUEDA ENTIDAD 2
@@ -211,6 +216,7 @@ function autocompleta2(){
 
 
 }
+
 
 function setEntidad2(idEntidad,NombreEntidad){
 

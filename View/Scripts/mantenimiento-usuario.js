@@ -8,6 +8,12 @@
     CargarComboPerfil();
     CargarComboDistrito();
 
+
+    $("#btnnuevo2").click(function(){
+        nuevoEncuestador();
+    });
+
+
     /* Habilitar tabs */
 
     $('.tabs').tabs();
@@ -270,3 +276,19 @@ function CargarComboDistrito(){
     });
 }
 
+//------------------------------
+//-- NUEVO ENCUESTADOR 
+
+//Funcion para refrescar campos luego de hacer clicl al boton NUEVO
+function nuevoEncuestador(){
+
+    $("#dni2").val("");
+    $("#Nombres2").val("");
+    $("#Correo2").val("");
+    $("#Telefono2").val("");
+    $("#Direccion2").val("");
+
+    
+    $("#cboDistrito option:selected").attr("value") == $("#cboDistrito").val("1"); ///combo distrito
+    $('select').formSelect();
+}

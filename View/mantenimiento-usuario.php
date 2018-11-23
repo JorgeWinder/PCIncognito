@@ -134,12 +134,15 @@
                                     <label for="Password" class="password">Contraseña</label>                                    
                     </div>        
                     <div class="input-field col s12 l6">
+                        <!-- <i class="material-icons prefix">vpn_key</i> -->
+                        <!-- <input id="Password" type="password" value=""> -->
+                        <!-- <label for="Password" class="password">Cambiar password</label>  -->
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col s12 l12 center-align">
-                        <a id="btnnuevo" href="" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Nuevo</a>
+                        <a id="btnnuevo" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Nuevo</a>
                         <a id="btnregistrar" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Registrar</a>
                         <a id="btnmodificar" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Modificar</a>
                         <a id="btneliminar" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Eliminar</a>
@@ -225,12 +228,15 @@
                                     <label for="Password2" class="">Contraseña</label>                                    
                     </div>        
                     <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">vpn_key</i>
+                        <!-- <input id="Password" type="password" value=""> -->
+                        <label for="Password" class="password">Cambiar password</label> 
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col s12 l12 center-align">
-                        <a id="btnnuevo" href="" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Nuevo</a>
+                        <a id="btnnuevo2" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Nuevo</a>
                         <a id="btnregistrar2" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Registrar</a>
                         <a id="btnmodificar2" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Modificar</a>
                         <a id="btneliminar2" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Eliminar</a>
