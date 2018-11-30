@@ -406,6 +406,85 @@
             
          });  
 
+
+    // Registrar cliente
+
+        $app->post('/api-pcincog/cliente/add', function(Request $request, Response $response){
+
+            $Ruc = $request->getParam('Ruc');
+            $NombreCliente = $request->getParam('NombreCliente');
+            $RazonSocial = $request->getParam('RazonSocial');
+            $Contacto = $request->getParam('Contacto');        
+            $TelefonoContacto = $request->getParam('TelefonoContacto'); 
+            //$Password = password_hash($request->getParam('Password'), PASSWORD_DEFAULT);
+        
+
+            $sql = "INSERT INTO cliente (Ruc, NombreCliente, RazonSocial, Contacto, TelefonoContacto) VALUES ('$Ruc', '$NombreCliente', '$RazonSocial', '$Contacto', '$TelefonoContacto')";
+
+            try{
+                // Get DB Object
+                $db = new db();
+                // Connect
+                $db = $db->connect();
+                $stmt = $db->prepare($sql);
+        
+                if($stmt->execute())
+                {
+        /*            session_start(); 
+                    $_SESSION["pagina"]='/encuesta/pagina-dos';*/
+                    echo json_encode(TRUE);
+                }
+            
+            } catch(PDOException $e){
+                //  echo '{"error": {"text": '.$e->getMessage().'}';
+                echo json_encode(FALSE);
+            }
+        });
+
+
+
+    //Modificar cliente
+
+    $app->post('/api-pcincog/cliente/update', function(Request $request, Response $response){
+
+        $Ruc = $request->getParam('Ruc');
+        $NombreCliente = $request->getParam('NombreCliente');
+        $RazonSocial = $request->getParam('RazonSocial');
+        $Contacto = $request->getParam('Contacto');        
+        $TelefonoContacto = $request->getParam('TelefonoContacto'); 
+        //$Password = password_hash($request->getParam('Password'), PASSWORD_DEFAULT);
+    
+
+        $sql = "UPDATE cliente SET Ruc='$Ruc' , 
+        NombreCliente='$NombreCliente' , 
+        RazonSocial='$RazonSocial' , 
+        Contacto='$Contacto' , 
+        TelefonoContacto='$TelefonoContacto'
+        WHERE Ruc='$Ruc'";
+
+        try{
+            // Get DB Object
+            $db = new db();
+            // Connect
+            $db = $db->connect();
+            $stmt = $db->prepare($sql);
+    
+            if($stmt->execute())
+            {
+    /*            session_start(); 
+                $_SESSION["pagina"]='/encuesta/pagina-dos';*/
+                echo json_encode(TRUE);
+            }
+        
+        } catch(PDOException $e){
+            //  echo '{"error": {"text": '.$e->getMessage().'}';
+            echo json_encode(FALSE);
+        }
+    });
+
+
+         
+
      
     // Registrar entidad
 

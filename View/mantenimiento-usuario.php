@@ -258,9 +258,78 @@
         <div class="card white">
             <div class="card-content">
                 <!--<span class="card-title center-align" style="border-left: 7px solid #e85b21;border-right: 7px solid #e85b21;">INGRESAR</span>-->
-                <span class="card-title" style="color: #f39c12;padding-bottom: 10px;"></span>
-                
+                <span class="card-title" style="color: #f39c12;padding-bottom: 10px; padding: 0 5% 10px 5%;">
 
+                    <div class="input-field" style="border: 50px;">
+                                <input id="search3" onkeyup="autocompleta3()" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de usuario cliente" type="search" required>
+                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                                <div id="searchRS3" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;display: none;">
+                                            <!-- <a style="" href="#" class="collection-item">45347734 - JORGE WINDER</a>
+                                            <a style="" href="#" class="collection-item">29722385 - CLAUDIA VELASQUEZ</a>
+                                            <a style="" href="#" class="collection-item">36589757 - ROSA VASQUEZ MORENO</a> -->
+                                </div>
+                    </div>   
+                
+                
+              
+                </span>
+                
+                <div class="row">
+                    <div class="input-field col s12 l6">
+                                    <i class="material-icons prefix">library_books</i>
+                                    <input id="Ruc3" type="text" value="" style="">
+                                    <label for="Ruc3" class="">RUC</label>
+                    </div>        
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12 l6">
+                                    <i class="material-icons prefix">face</i>
+                                    <input id="NombreCliente3" type="text" value="">
+                                    <label for="NombreCliente3" class="">Nombre Cliente</label>
+                    </div>
+                    <div class="input-field col s12 l6">
+                                    <!-- <i class="material-icons prefix">library_books</i> -->
+                                    <input id="RazonSoc3" type="text" value="" style="">
+                                    <label for="RazonSoc3" class="">Razón Social</label>
+                    </div>                            
+                </div>
+
+                <div class="row">        
+                    <div class="input-field col s12 l6">
+                        <i class="material-icons prefix">email</i>
+                        <input id="Contacto3" type="text" value="">
+                        <label for="Contacto3" class="">Contacto</label>
+                    </div>
+                    <div class="input-field col s12 l6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="TelefonoContacto3" type="text" value="">
+                        <label for="TelefonoContacto3" class="">Teléfono Contacto</label>
+                    </div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="input-field col s12 l6">
+                                    <i class="material-icons prefix">https</i>
+                                    <input id="Password3" type="password" value="">
+                                    <label for="Password3" class="password">Contraseña</label>                                    
+                    </div>         -->
+                    <!-- <div class="input-field col s12 l6"> -->
+                        <!-- <i class="material-icons prefix">vpn_key</i> -->
+                        <!-- <input id="Password" type="password" value=""> -->
+                        <!-- <label for="Password" class="password">Cambiar password</label>  -->
+                    <!-- </div>
+                </div> -->
+
+                <div class="row">
+                    <div class="col s12 l12 center-align">
+                        <a id="btnnuevo3" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Nuevo</a>
+                        <a id="btnregistrar3" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Registrar</a>
+                        <a id="btnmodificar3" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Modificar</a>
+                        <a id="btneliminar3" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Eliminar</a>
+                    </div>    
+                </div>
                     
             </div>
 
