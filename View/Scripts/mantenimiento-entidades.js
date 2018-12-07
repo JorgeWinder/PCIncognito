@@ -215,6 +215,8 @@ function autocompleta2(){
     }else{ $("#searchRS2 a").remove(); }
 
 
+    
+
 }
 
 

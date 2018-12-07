@@ -373,6 +373,122 @@
             
          });  
      
+    //Busqueda de usuario cliente
+
+    $app->post('/api-pcincog/usuariocliente/busqueda',  function(Request $request, Response $response) { 
+    
+        $Nombres = $request->getParam('Nombres');
+        
+        //$sql="SELECT * FROM colaborador where  idColaborador like '%$Nombres%' or  Apellidos like '%$Nombres%'";
+        $sql="SELECT * FROM usuariocliente where  Cliente_Ruc like '%$Nombres%' OR Nombres  like '%$Nombres%'";
+
+        try{
+            
+             // Get DB Object
+             $db = new db();
+             // Connect
+             $db = $db->connect();
+             $stmt = $db->query($sql);
+             $productos = $stmt->fetchAll(PDO::FETCH_OBJ);
+             $db = null;
+             
+             if(count($productos)>0){
+                 echo json_encode($productos); 
+             }else{
+                 echo json_encode("Objeto vacio"); 
+             }
+            
+            
+        } catch(PDOException $e){
+             echo '{"error" : {"text": '.$e->getMessage().'}';
+        }
+        
+     });  
+
+
+     //Registrar Usuario Cliente
+
+     $app->post('/api-pcincog/usuariocliente/add', function(Request $request, Response $response){
+
+        $Ruc = $request->getParam('Ruc');
+        $Nombres = $request->getParam('Nombres');
+        $Correo = $request->getParam('Correo'); 
+        $Password = password_hash($request->getParam('Password'), PASSWORD_DEFAULT);
+    
+
+        $sql = "INSERT INTO usuariocliente (Ruc, Cliente_Ruc, correo, Nombres) VALUES ('$Ruc', '$Ruc', '$Correo', '$Nombres')";
+
+        try{
+            // Get DB Object
+            $db = new db();
+            // Connect
+            $db = $db->connect();
+            $stmt = $db->prepare($sql);
+    
+            if($stmt->execute())
+            {
+    /*            session_start(); 
+                $_SESSION["pagina"]='/encuesta/pagina-dos';*/
+                echo json_encode(TRUE);
+            }
+        
+        } catch(PDOException $e){
+            //  echo '{"error": {"text": '.$e->getMessage().'}';
+            echo json_encode(FALSE);
+        }
+    });
+
+
+    //Modificar Usuario Cliente
+
+    $app->post('/api-pcincog/usuariocliente/update', function(Request $request, Response $response){
+
+        $Ruc = $request->getParam('Ruc');
+        $Nombres = $request->getParam('Nombres');
+        $Correo = $request->getParam('Correo'); 
+        $Password = password_hash($request->getParam('Password'), PASSWORD_DEFAULT);
+    
+
+        $sql = "UPDATE usuariocliente 
+        SET  Cliente_Ruc='$Ruc',
+        SET  Nombres='$Nombres' ,
+        SET  Correo='$Correo' 
+        WHERE idEntidad='$idEntidad'";
+
+        try{
+            // Get DB Object
+            $db = new db();
+            // Connect
+            $db = $db->connect();
+            $stmt = $db->prepare($sql);
+    
+            if($stmt->execute())
+            {
+    /*            session_start(); 
+                $_SESSION["pagina"]='/encuesta/pagina-dos';*/
+                echo json_encode(TRUE);
+            }
+        
+        } catch(PDOException $e){
+            //  echo '{"error": {"text": '.$e->getMessage().'}';
+            echo json_encode(FALSE);
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             
 
     //Busqueda de cliente
 
@@ -407,6 +523,8 @@
          });  
 
 
+    
+    
     // Registrar cliente
 
         $app->post('/api-pcincog/cliente/add', function(Request $request, Response $response){

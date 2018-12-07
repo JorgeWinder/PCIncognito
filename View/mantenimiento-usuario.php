@@ -260,53 +260,113 @@
                 <!--<span class="card-title center-align" style="border-left: 7px solid #e85b21;border-right: 7px solid #e85b21;">INGRESAR</span>-->
                 <span class="card-title" style="color: #f39c12;padding-bottom: 10px; padding: 0 5% 10px 5%;">
 
-                    <div class="input-field" style="border: 50px;">
-                                <input id="search3" onkeyup="autocompleta3()" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de usuario cliente" type="search" required>
+                    <!-- <div class="input-field col l6 s12" style="border: 50px;"> -->
+                   
+
+              
+                </span>
+
+
+                <div class="row card-title" style="margin-left: 32px; margin-top: -20px;">
+                
+                <div class="input-field col l8 s12" style="border: 50px;">
+                                <input id="search4" onkeyup="autocompleta3()" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de cliente" type="search" required>
                                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                                 <i class="material-icons">close</i>
-                                <div id="searchRS3" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;display: none;">
+                                <div id="searchRS4" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;display: none;">
                                             <!-- <a style="" href="#" class="collection-item">45347734 - JORGE WINDER</a>
                                             <a style="" href="#" class="collection-item">29722385 - CLAUDIA VELASQUEZ</a>
                                             <a style="" href="#" class="collection-item">36589757 - ROSA VASQUEZ MORENO</a> -->
                                 </div>
                     </div>   
+
+
+          
+                    <!-- div de boton OTRA ENTIDAD -->
+                     <!-- <div class="input-field col l3 s12"> 
+                     <div class="input-field col l3 s12">
+                    <a id="" href="#modal2" class='modal-trigger'>Clientes</a> --
+                    </div>       -->
+               
+                    <div class="input-field col s12 l4">
+                        <!--<a id="" href="#modal2" class='modal-trigger'>Clientes</a> -->
+
+                        <a id="btnNuevoCliente" href="#modal2" class="modal-trigger waves-effect waves-light btn" style="background-color: #f39c12;width:40%;">Clientes</a>
+
+                    </div>  
+
                 
+                </div>
+
+
+                  <div class="row card-title" style="padding: 0 5% 10px 5%; margin-top: -20px;">
                 
-              
-                </span>
+                <div class="input-field col l12 s12" style="border: 50px;">
+                                <input id="search4_uc" onkeyup="" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de usuario cliente" type="search" required>
+                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                                <div id="searchRS4_uc" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;display: none;">
+                                   
+                                </div>
+                    </div>   
+               
+                </div>
+                
+
+
+                <!-- <div class="input-field col s12 l6"> -->
+                        <!--- <a id="" href="#modal2" class='modal-trigger'>Clientes</a>-->
+
+                        <!-- <a id="btnNuevoCliente" href="#modal2" class="modal-trigger waves-effect waves-light btn" style="background-color: #f39c12;width:40%;">Clientes</a> -->
+
+                    <!-- </div>   -->
                 
                 <div class="row">
                     <div class="input-field col s12 l6">
-                                    <i class="material-icons prefix">library_books</i>
-                                    <input id="Ruc3" type="text" value="" style="">
-                                    <label for="Ruc3" class="">RUC</label>
-                    </div>        
+                        <i class="material-icons prefix">library_books</i>
+                        <input id="Ruc4" type="text" value="" style="">
+                        <label for="Ruc4" class="">RUC</label>
+                    </div>  
+
+                    
+                    <div class="input-field col s12 l6">
+                        <!--- <a id="" href="#modal2" class='modal-trigger'>Clientes</a>-->
+
+                        <!-- <a id="btnNuevoCliente" href="#modal2" class="modal-trigger waves-effect waves-light btn" style="background-color: #f39c12;width:40%;">Clientes</a> -->
+                        
+                        <input id="Nombres4" type="text" value="" style="">
+                        <label for="Nombres4" class="">Documento de identidad</label>
+                    </div>  
+
                 </div>
+              
 
                 <div class="row">
                     <div class="input-field col s12 l6">
-                                    <i class="material-icons prefix">face</i>
-                                    <input id="NombreCliente3" type="text" value="">
-                                    <label for="NombreCliente3" class="">Nombre Cliente</label>
+                                    <i class="material-icons prefix">email</i>
+                                    <input id="Correo4" type="text" value="">
+                                    <label for="Correo4" class="">Correo</label>
                     </div>
                     <div class="input-field col s12 l6">
-                                    <!-- <i class="material-icons prefix">library_books</i> -->
-                                    <input id="RazonSoc3" type="text" value="" style="">
-                                    <label for="RazonSoc3" class="">Razón Social</label>
+                        <!-- <i class="material-icons prefix">library_books</i> -->
+                        <i class="material-icons prefix">face</i>
+                        <input id="Nombres4" type="text" value="" style="">
+                        <label for="Nombres4" class="">Nombres</label>
                     </div>                            
                 </div>
 
                 <div class="row">        
                     <div class="input-field col s12 l6">
-                        <i class="material-icons prefix">email</i>
-                        <input id="Contacto3" type="text" value="">
-                        <label for="Contacto3" class="">Contacto</label>
+                        <i class="material-icons prefix">https</i>
+                        <input id="Contacto4" type="text" value="">
+                        <label for="Contacto4" class="">Contraseña</label>
                     </div>
-                    <div class="input-field col s12 l6">
-                        <i class="material-icons prefix">phone</i>
-                        <input id="TelefonoContacto3" type="text" value="">
-                        <label for="TelefonoContacto3" class="">Teléfono Contacto</label>
-                    </div>
+         
+                    <!-- <div class="input-field col s12 l4">
+                        <a href="#modal1" class="modal-trigger"><i class="material-icons prefix" style="float: left;">vpn_key</i><label style="float: left;color: blue;padding-top: 15px;cursor: pointer;"><u>CAMBIAR CONTRASEÑA</u></label></a>
+                    </div> -->
+
+
                 </div>
 
                 <!-- <div class="row">
@@ -324,10 +384,10 @@
 
                 <div class="row">
                     <div class="col s12 l12 center-align">
-                        <a id="btnnuevo3" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Nuevo</a>
-                        <a id="btnregistrar3" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Registrar</a>
-                        <a id="btnmodificar3" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Modificar</a>
-                        <a id="btneliminar3" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Eliminar</a>
+                        <a id="btnnuevo4" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Nuevo</a>
+                        <a id="btnregistrar4" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Registrar</a>
+                        <a id="btnmodificar4" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Modificar</a>
+                        <a id="btneliminar4" href="javascript:void()" class="waves-effect waves-light btn" style="background-color: #f39c12;width:20%;">Eliminar</a>
                     </div>    
                 </div>
                     
@@ -350,6 +410,10 @@
 
 <?php 
  include_once './View/modal-cambia-password-us.php';
+ ?>
+
+ <?php 
+ include_once './View/modal-cliente.php';
  ?>
   <!-- Fin modal Structure -->
 

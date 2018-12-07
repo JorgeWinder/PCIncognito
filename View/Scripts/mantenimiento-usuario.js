@@ -18,6 +18,10 @@
 
 
     $("#btnnuevo3").click(function(){
+        nuevoCliente(); //se llama a funcion para limpiar campos en el evento click del boton NUEVO (Pop Up Cliente)
+    });
+
+    $("#btnnuevo4").click(function(){
         nuevoUsuarioCliente(); //se llama a funcion para limpiar campos en el evento click del boton NUEVO (Usuario Cliente)
     });
 
@@ -84,7 +88,7 @@
 
     });
 
-    //### Botón Registrar - Usuario Cliente #####
+    //### Botón Registrar - Cliente #####
     $("#btnregistrar3").click(function(){
             
         if( $("#Ruc3").val()!="" && $("#NombreCliente3").val()!="" && $("#RazonSoc3").val()!="" ){
@@ -273,7 +277,7 @@ function setColaborador(dni,Nombres,Apellidos,Correo,Perfil){
 }
 
 //----------------------------------------------------
-//-- BUSQUEDA AUTOCOMPLETADO USUARIO CLIENTE
+//-- BUSQUEDA AUTOCOMPLETADO CLIENTE
 
 function autocompleta3(){
         
@@ -315,6 +319,7 @@ function autocompleta3(){
                             //html = "<a style='' href='javascript:setCliente("+ obj[i].Ruc.toString() +",\"" + obj[i].NombreCliente.toString() + "\",\"" + obj[i].RazonSocial.toString() + "\",\"" + obj[i].Telefono.toString() +  "\",\"" + obj[i].Contacto.toString() + "\","+ obj[i].TelefonoContacto.toString() +")' class='collection-item'>" + obj[i].Ruc.toString() + " - " + obj[i].NombreCliente.toString() + "</a>";                                   
                             html = "<a style='' href='javascript:setCliente("+ obj[i].Ruc.toString() +",\"" + obj[i].NombreCliente.toString() + "\",\"" + RazonSocial +   "\",\"" + Contacto + "\","+ TelefonoContacto +")' class='collection-item'>" + obj[i].Ruc.toString() + " - " + obj[i].NombreCliente.toString() + "</a>";                                   
                             $("#searchRS3").append(html);
+                            $("#searchRS4").append(html);
                           }
 
                           
@@ -325,12 +330,17 @@ function autocompleta3(){
     }else{ $("#searchRS3 a").remove(); }
 
 
+
 }
+
+
+
 
 
 function setCliente(Ruc,Nombre,RazonSoc,Contacto,TelefonoContacto){
 
     $("#search3").val(Ruc + " - " + Nombre);
+    $("#search4").val(Ruc + " - " + Nombre);
     $("#searchRS3").css("display","none");
 
     $("#Ruc3").val(Ruc);
@@ -353,6 +363,13 @@ function setCliente(Ruc,Nombre,RazonSoc,Contacto,TelefonoContacto){
     $("#Ruc3").focus();
 
     $("#btnregistrar3").attr("disabled",true);
+
+}
+
+
+function setCliente_uc(Ruc,Nombre){
+
+    $("#search4").val(Ruc + " - " + Nombre);
 
 }
 
@@ -456,10 +473,10 @@ function nuevoEncuestador(){
 }
 
 //------------------------------
-//-- NUEVO USUARIO CLIENTE 
+//-- NUEVO CLIENTE 
 
 //Funcion para refrescar campos luego de hacer clicl al boton NUEVO
-function nuevoUsuarioCliente(){
+function nuevoCliente(){
 
     $("#search3").val("");
     $("#Ruc3").val("");
@@ -470,6 +487,24 @@ function nuevoUsuarioCliente(){
     $('select').formSelect();
 
     $("#btnregistrar3").attr("disabled",false);
+
+    //$('select').formSelect();
+}
+
+
+//------------------------------
+//-- NUEVO USUARIO CLIENTE 
+
+//Funcion para refrescar campos luego de hacer clicl al boton NUEVO
+function nuevoUsuarioCliente(){
+
+    $("#search4").val("");
+    $("#Ruc4").val("");
+    $("#Correo4").val("");
+    $("#Nombres4").val("");
+    $('select').formSelect();
+
+    $("#btnregistrar4").attr("disabled",false);
 
     //$('select').formSelect();
 }
