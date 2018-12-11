@@ -270,7 +270,7 @@
                 <div class="row card-title" style="margin-left: 32px; margin-top: -20px;">
                 
                 <div class="input-field col l8 s12" style="border: 50px;">
-                                <input id="search4" onkeyup="autocompleta3()" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de cliente" type="search" required>
+                                <input id="search4" onkeyup="autocompletaCliente()" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de cliente" type="search" required>
                                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                                 <i class="material-icons">close</i>
                                 <div id="searchRS4" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;display: none;">
@@ -302,7 +302,7 @@
                   <div class="row card-title" style="padding: 0 5% 10px 5%; margin-top: -20px;">
                 
                 <div class="input-field col l12 s12" style="border: 50px;">
-                                <input id="search4_uc" onkeyup="" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de usuario cliente" type="search" required>
+                                <input id="search4_uc" onkeyup="autocompletaUsuarioCliente()" style="padding-left: 4rem; width: calc(100% - 4rem);" placeholder="Busqueda de usuario cliente" type="search" required>
                                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                                 <i class="material-icons">close</i>
                                 <div id="searchRS4_uc" class="collection" style="padding-left: 0px;position: absolute;background-color: white;z-index: 100;font-size: 16px;display: none;">
@@ -334,8 +334,8 @@
 
                         <!-- <a id="btnNuevoCliente" href="#modal2" class="modal-trigger waves-effect waves-light btn" style="background-color: #f39c12;width:40%;">Clientes</a> -->
                         
-                        <input id="Nombres4" type="text" value="" style="">
-                        <label for="Nombres4" class="">Documento de identidad</label>
+                        <input id="Doc4" type="text" value="" style="">
+                        <label for="Doc4" class="">Documento de identidad</label>
                     </div>  
 
                 </div>

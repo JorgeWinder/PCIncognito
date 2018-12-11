@@ -378,9 +378,10 @@
     $app->post('/api-pcincog/usuariocliente/busqueda',  function(Request $request, Response $response) { 
     
         $Nombres = $request->getParam('Nombres');
+        $Nombres2 = $request->getParam('Nombres2');
         
         //$sql="SELECT * FROM colaborador where  idColaborador like '%$Nombres%' or  Apellidos like '%$Nombres%'";
-        $sql="SELECT * FROM usuariocliente where  Cliente_Ruc like '%$Nombres%' OR Nombres  like '%$Nombres%'";
+        $sql="SELECT * FROM usuariocliente where Cliente_Ruc =  left('$Nombres2',11) and (idUsuarioCliente like '%$Nombres%' or Nombres like '%$Nombres%') ";
 
         try{
             

@@ -334,13 +334,120 @@ function autocompleta3(){
 }
 
 
+function autocompletaCliente(){
+        
 
+    if($("#search4").val()!="")
+    {
+        $.ajax({
+           type: "POST",
+           url: './api-pcincog/cliente/busqueda',
+           data:  {Nombres: $("#search4").val() },
+           success: function (response) {
+                          var obj = $.parseJSON(response);  
+        
+                          $("#searchRS4").css("display","block");                 
+                          $("#searchRS4 a").remove();
+                          html = "";
+
+                          for (var i = 0; i < obj.length; i++) {
+                              //alert(obj[i].idColaborador.toString());
+
+                            //html = "<a style='' href='javascript:setCliente("+ obj[i].Ruc.toString() +",\"" + obj[i].NombreCliente.toString() + "\",\"" + obj[i].RazonSocial.toString() + "\",\"" + obj[i].Telefono.toString() +  "\",\"" + obj[i].Contacto.toString() + "\","+ obj[i].TelefonoContacto.toString() +")' class='collection-item'>" + obj[i].Ruc.toString() + " - " + obj[i].NombreCliente.toString() + "</a>";                                   
+                            html = "<a style='' href='javascript:setClienteFirst("+ obj[i].Ruc.toString() +",\"" + obj[i].NombreCliente.toString()   +"\")  ' class='collection-item'>" + obj[i].Ruc.toString() + " - " + obj[i].NombreCliente.toString() + "</a>";                                   
+                            //$("#searchRS3").append(html);
+                            $("#searchRS4").append(html);
+                          }
+
+                          
+                          //obj ? alert("CLIENTE REGISTRADO") : alert("HUBO PROBLEMAS AL REGISTAR EL CLIENTE");
+                }
+        });	 
+
+    }else{ $("#searchRS4 a").remove(); }
+
+
+
+}
+
+
+//----------------------------------------------------
+//-- BUSQUEDA AUTOCOMPLETADO USUARIO CLIENTE
+function autocompletaUsuarioCliente()
+{
+
+    if($("#search4_uc").val()!="")
+    {
+        $.ajax({
+           type: "POST",
+           url: './api-pcincog/usuariocliente/busqueda',
+           data:  {Nombres: $("#search4_uc").val(),
+                    Nombres2 : $("#search4").val()},
+           success: function (response) {
+                          var obj = $.parseJSON(response);  
+        
+                          $("#searchRS4").css("display","block");                 
+                          $("#searchRS4 a").remove();
+                          html = "";
+
+                          for (var i = 0; i < obj.length; i++) {
+                              //alert(obj[i].idColaborador.toString());
+                              
+
+                            //html = "<a style='' href='javascript:setCliente("+ obj[i].Ruc.toString() +",\"" + obj[i].NombreCliente.toString() + "\",\"" + obj[i].RazonSocial.toString() + "\",\"" + obj[i].Telefono.toString() +  "\",\"" + obj[i].Contacto.toString() + "\","+ obj[i].TelefonoContacto.toString() +")' class='collection-item'>" + obj[i].Ruc.toString() + " - " + obj[i].NombreCliente.toString() + "</a>";                                   
+                            html = "<a style='' href='javascript:setUsuarioCliente(" + "\"" + obj[i].Cliente_Ruc.toString() +"\",\"" + obj[i].idUsuarioCliente.toString() +   "\",\"" + obj[i].correo.toString() + "\",\"" + obj[i].Nombres.toString() +  "\"" + ")' class='collection-item'>" + obj[i].idUsuarioCliente.toString() + " - " + obj[i].Nombres.toString() + "</a>";                                   
+                            $("#searchRS4").append(html);
+                          }
+
+                          
+                          //obj ? alert("CLIENTE REGISTRADO") : alert("HUBO PROBLEMAS AL REGISTAR EL CLIENTE");
+                }
+        });	 
+
+    }else{ $("#searchRS3 a").remove(); }
+
+}
+
+
+function setUsuarioCliente(Ruc,Doc,Correo,Nombres)
+{
+
+    $("#search4_uc").val(Doc + " - " + Nombres);
+
+    $("#searchRS4").css("display","none");
+
+    $("#Nombres4").val(Nombres);
+    $("#Nombres4").focus();
+
+    $("#Doc4").val(Doc);
+    $("#Doc4").focus();
+
+    $("#Correo4").val(Correo);
+    $("#Correo4").focus();
+
+    $("#Ruc4").val(Ruc);
+    $("#Ruc4").focus();
+    
+
+    $("#Password3").attr("disabled",true);
+
+    $("#btnregistrar4").attr("disabled",true);
+
+}
+
+function setClienteFirst(Ruc, Nombre)
+{
+    $("#search4").val(Ruc + " - " + Nombre);
+    $("#searchRS4").css("display","none");
+
+    $("#search4_uc").focus();
+}
 
 
 function setCliente(Ruc,Nombre,RazonSoc,Contacto,TelefonoContacto){
 
     $("#search3").val(Ruc + " - " + Nombre);
-    $("#search4").val(Ruc + " - " + Nombre);
+    
     $("#searchRS3").css("display","none");
 
     $("#Ruc3").val(Ruc);
