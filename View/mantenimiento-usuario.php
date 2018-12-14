@@ -358,8 +358,8 @@
                 <div class="row">        
                     <div class="input-field col s12 l6">
                         <i class="material-icons prefix">https</i>
-                        <input id="Contacto4" type="text" value="">
-                        <label for="Contacto4" class="">Contraseña</label>
+                        <input id="Password4" type="password" value="">
+                        <label for="Password4" class="">Contraseña</label>
                     </div>
          
                     <!-- <div class="input-field col s12 l4">

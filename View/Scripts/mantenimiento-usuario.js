@@ -60,7 +60,7 @@
                   }
             });
 
-        }else{ alert("FLATAN COMPLETAR DATOS"); }        
+        }else{ alert("FALTAN COMPLETAR DATOS"); }        
 
         // var imp =  $("#dni").val() + "  - " + $("#cboPerfil option:selected").attr("value") + " - " + $("#Nombres").val().toUpperCase() + " - " + $("#Correo").val().toUpperCase() + " - " + $("#Apellidos").val().toUpperCase();
         //  alert(imp);
@@ -84,7 +84,7 @@
                   }
             });
 
-        }else{ alert("FLATAN COMPLETAR DATOS"); }        
+        }else{ alert("FALTAN COMPLETAR DATOS"); }        
 
     });
 
@@ -99,17 +99,35 @@
               data:  {Ruc: $("#Ruc3").val().trim(), NombreCliente: $("#NombreCliente3").val().trim().toUpperCase() , RazonSocial: $("#RazonSoc3").val().trim().toUpperCase() , Contacto: $("#Contacto3").val().trim().toUpperCase() , TelefonoContacto: $("#TelefonoContacto3").val().trim().toUpperCase() , Password: $("#Password3").val() },
               success: function (response) {
                              var obj = $.parseJSON(response);                      
-                             obj ? alert("USUARIO CLIENTE REGISTRADO") : alert("HUBO PROBLEMAS AL REGISTAR USUARIO CLIENTE");
+                             obj ? alert("CLIENTE REGISTRADO") : alert("HUBO PROBLEMAS AL REGISTAR CLIENTE");
                              $("#btnregistrar3").attr("disabled","true");
                   }
             });
 
-        }else{ alert("FLATAN COMPLETAR DATOS"); }        
+        }else{ alert("FALTAN COMPLETAR DATOS"); }        
 
     });
 
 
+    //### Botón Registrar - Usuario Cliente #####
+    $("#btnregistrar4").click(function(){
+            
+        if( $("#search4").val()!="" && $("#Ruc4").val()!="" && $("#Doc4").val()!=""  && $("#Correo4").val()!=""  && $("#Nombres4").val()!=""  && $("#Password4").val()!="" ){
 
+            $.ajax({
+              type: "POST",
+              url: './api-pcincog/usuariocliente/add',
+              data:  {Ruc4: $("#Ruc4").val().trim(), Dni4: $("#Doc4").val().trim() , Nombres4: $("#Nombres4").val().trim(), Correo4: $("#Correo4").val().trim() , Password4: $("#Password4").val() },
+              success: function (response) {
+                             var obj = $.parseJSON(response);                      
+                             obj ? alert("USUARIO CLIENTE REGISTRADO") : alert("HUBO PROBLEMAS AL REGISTAR USUARIO CLIENTE");
+                             $("#btnregistrar4").attr("disabled","true");
+                  }
+            });
+
+        }else{ alert("FALTAN COMPLETAR DATOS"); }        
+
+    });
 
 
     $("#btnmodificar").click(function(){
@@ -128,7 +146,7 @@
                   }
             });
 
-        }else{ alert("FLATAN COMPLETAR DATOS"); }        
+        }else{ alert("FALTAN COMPLETAR DATOS"); }        
 
     });
 
@@ -148,7 +166,7 @@
                   }
             });
 
-        }else{ alert("FLATAN COMPLETAR DATOS"); }        
+        }else{ alert("FALTAN COMPLETAR DATOS"); }        
 
     });
 
@@ -171,9 +189,31 @@
                   }
             });
 
-        }else{ alert("FLATAN COMPLETAR DATOS"); }        
+        }else{ alert("FALTAN COMPLETAR DATOS"); }        
 
     });
+
+
+    $("#btnmodificar4").click(function(){
+            
+
+        if(  $("#search4").val()!="" &&  $("#search4_uc").val()!="" &&  $("#Ruc4").val()!="" &&  $("#Doc4").val()!=""){
+
+            $.ajax({
+              type: "POST",
+              url: './api-pcincog/usuariocliente/update',
+              data:  {Ruc4: $("#Ruc4").val().trim(), Doc4: $("#Doc4").val().trim() , Nombres4: $("#Nombres4").val().trim() , Correo4: $("#Correo4").val().trim()  , Password4: $("#Password4").val() },
+              success: function (response) {
+                             var obj = $.parseJSON(response);                      
+                             obj ? alert("REGISTRO MODIFICADO") : alert("HUBO PROBLEMAS AL MODIFICAR EL REGISTRO");
+                             //$("#btnmodificar").attr("disabled","true");
+                  }
+            });
+
+        }else{ alert("FALTAN COMPLETAR DATOS"); }        
+
+    });
+
 
 
         
@@ -438,9 +478,14 @@ function setUsuarioCliente(Ruc,Doc,Correo,Nombres)
 function setClienteFirst(Ruc, Nombre)
 {
     $("#search4").val(Ruc + " - " + Nombre);
+
+    $("#Ruc4").val(Ruc);
+
     $("#searchRS4").css("display","none");
 
     $("#search4_uc").focus();
+
+    $("#Ruc4").focus();
 }
 
 
@@ -609,6 +654,8 @@ function nuevoUsuarioCliente(){
     $("#Ruc4").val("");
     $("#Correo4").val("");
     $("#Nombres4").val("");
+    $("#search4_uc").val("");
+    $("#Doc4").val("");
     $('select').formSelect();
 
     $("#btnregistrar4").attr("disabled",false);

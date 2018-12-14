@@ -411,13 +411,14 @@
 
      $app->post('/api-pcincog/usuariocliente/add', function(Request $request, Response $response){
 
-        $Ruc = $request->getParam('Ruc');
-        $Nombres = $request->getParam('Nombres');
-        $Correo = $request->getParam('Correo'); 
-        $Password = password_hash($request->getParam('Password'), PASSWORD_DEFAULT);
+        $Ruc4 = $request->getParam('Ruc4');
+        $Dni4 = $request->getParam('Dni4');
+        $Nombres4 = $request->getParam('Nombres4');
+        $Correo4 = $request->getParam('Correo4'); 
+        $Password4 = password_hash($request->getParam('Password4'), PASSWORD_DEFAULT);
     
 
-        $sql = "INSERT INTO usuariocliente (Ruc, Cliente_Ruc, correo, Nombres) VALUES ('$Ruc', '$Ruc', '$Correo', '$Nombres')";
+        $sql = "INSERT INTO usuariocliente (idUsuarioCliente, Cliente_Ruc, correo, Nombres, Password) VALUES ('$Dni4', '$Ruc4', '$Correo4', '$Nombres4', '$Password4')";
 
         try{
             // Get DB Object
@@ -435,6 +436,7 @@
         
         } catch(PDOException $e){
             //  echo '{"error": {"text": '.$e->getMessage().'}';
+            echo '{"error" : {"text": '.$e->getMessage().'}';
             echo json_encode(FALSE);
         }
     });
@@ -444,17 +446,20 @@
 
     $app->post('/api-pcincog/usuariocliente/update', function(Request $request, Response $response){
 
-        $Ruc = $request->getParam('Ruc');
-        $Nombres = $request->getParam('Nombres');
-        $Correo = $request->getParam('Correo'); 
-        $Password = password_hash($request->getParam('Password'), PASSWORD_DEFAULT);
+        $Ruc4 = $request->getParam('Ruc4');
+        $Dni4 = $request->getParam('Dni4');
+        $Nombres4 = $request->getParam('Nombres4');
+        $Correo4 = $request->getParam('Correo4'); 
+        $Password4 = password_hash($request->getParam('Password4'), PASSWORD_DEFAULT);
     
 
         $sql = "UPDATE usuariocliente 
-        SET  Cliente_Ruc='$Ruc',
-        SET  Nombres='$Nombres' ,
-        SET  Correo='$Correo' 
-        WHERE idEntidad='$idEntidad'";
+        SET  idUsuarioCLiente='$Dni4',
+        Cliente_Ruc='$Ruc4',
+        Nombres='$Nombres4',
+        Correo='$Correo4',
+        Password='$Password4'  
+        WHERE idUsuarioCliente='$Dni4'";
 
         try{
             // Get DB Object
@@ -472,24 +477,12 @@
         
         } catch(PDOException $e){
             //  echo '{"error": {"text": '.$e->getMessage().'}';
+            echo '{"error" : {"text": '.$e->getMessage().'}';
             echo json_encode(FALSE);
         }
     });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-             
 
     //Busqueda de cliente
 
